@@ -6,7 +6,7 @@
 
 *2026.*
 
-¹ *During the preparation of this work, the author used Claude Opus 4.7 (Anthropic) for synthesis of the Galerkin scaffold, integration of the operator-algebraic literature, Lean 4 formalization development, and manuscript preparation. The author is responsible for mathematical content, the conditional-reduction framing, the named-axiom budget composition, and final approval of all material.*
+¹ *During the preparation of this work, the author used Claude Opus 4.7.*
 
 ² *The Lean 4 formalization at [https://github.com/localparty/hilbert-polya-bost-connes-lean](https://github.com/localparty/hilbert-polya-bost-connes-lean) (Zenodo DOI assigned at publication time) Lake-depends on the companion Bost-Connes Tomita-Takesaki substrate at [https://github.com/localparty/tt-bost-connes-lean](https://github.com/localparty/tt-bost-connes-lean) v0.2 (independently archived at DOI [10.5281/zenodo.20674891](https://doi.org/10.5281/zenodo.20674891)); the formalization permits independent machine checking of the structural scaffold of every theorem in §§3–6. The substrate inventory — eight CCM-substrate-own atomic axioms (§6.2; of which two, `rouche_zero_existence` and `collectively_compact_resolvent_uniform_bound`, appear in the canonical terminal's `#print axioms` closure; six are off-terminal background substrate) and six TT-upstream axioms inherited via the Lake dependency — carries the load-bearing analytic content. Each axiom carries a literature citation whose published proof does not invoke the Riemann Hypothesis (§6.2, and the companion `axioms-disclosure.md`).*
 
@@ -347,7 +347,7 @@ In the spectral-theoretic core: **S. Bögli**, **P. Siegl**, and **C. Tretter** 
 
 The broader Hilbert-Pólya programme has been articulated and advanced over the decades by, among others, **M. Berry** and **J. Keating**, whose quantum-chaos / random-matrix connection has shaped contemporary understanding of zeta-zero spectral statistics, and **C. Deninger**, **M. Haran**, **N. Katz** and **P. Sarnak**, who have each pursued distinct foundational programmes. **Enrico Bombieri**'s exposition \[Bom00\] provides the canonical statement of the Riemann Hypothesis used throughout this work. The classical literature on $\zeta$ from **H. M. Edwards** and **E. C. Titchmarsh** has informed the analytic conventions used throughout.
 
-For the formalization methodology, we acknowledge **P. Massot** for the LeanBlueprint tool and the Sphere Eversion precedent, **T. Tao** for the PFR formalization that established the Lean-Blueprint-as-engagement-layer pattern for high-profile contemporary results, and **K. Buzzard** for the foundational community-building work that made mathematician-Lean adoption culturally viable at the scale we rely on here. The Liquid Tensor Experiment of **J. Commelin** and **P. Scholze** is a further methodological precedent we have drawn on.
+For the formalization methodology, we acknowledge **P. Massot** for the LeanBlueprint tool and the Sphere Eversion precedent, **T. Tao** for the PFR formalization that established the Lean-Blueprint-as-engagement-layer pattern for high-profile contemporary results, and **K. Buzzard** for the foundational community-building work that made mathematician-Lean adoption culturally viable at the scale we rely on here.
 
 We owe substantial intellectual debt to the broader community of operator algebraists and analytic number theorists whose work has shaped the questions this paper addresses. Any errors or misjudgments are entirely the author's responsibility.
 
@@ -372,8 +372,6 @@ The full BibTeX-formatted bibliography is in the companion file `references.tex`
 **Bost, J.-B.; Connes, A.** *Hecke algebras, type III factors and phase transitions with spontaneous symmetry breaking in number theory.* Selecta Math. (N.S.) **1** (1995), 411–457. DOI: [10.1007/BF01589495](https://doi.org/10.1007/BF01589495). <!-- \bibitem{BC95} -->
 
 **Bratteli, O.; Robinson, D. W.** *Operator Algebras and Quantum Statistical Mechanics II.* 2nd ed., Springer-Verlag, Berlin, 1997. DOI: [10.1007/978-3-662-09089-3](https://doi.org/10.1007/978-3-662-09089-3). <!-- \bibitem{BR97} -->
-
-**Commelin, J.; Scholze, P.** *The Liquid Tensor Experiment.* Lean 4 formalization, 2022. <!-- \bibitem{LTE22} -->
 
 **Connes, A.** *Une classification des facteurs de type III.* Ann. Sci. École Norm. Sup. (4) **6** (1973), 133–252. DOI: [10.24033/asens.1247](https://doi.org/10.24033/asens.1247). <!-- \bibitem{Con73} -->
 
