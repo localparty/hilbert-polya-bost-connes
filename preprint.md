@@ -4,7 +4,7 @@
 
 *San Francisco, CA, USA*
 
-*math.OA / math.NT submission, 2026.*
+*2026.*
 
 ¹ *During the preparation of this work, the author used Claude Opus 4.7 (Anthropic) for synthesis of the Galerkin scaffold, integration of the operator-algebraic literature, Lean 4 formalization development, and manuscript preparation. The author is responsible for mathematical content, the conditional-reduction framing, the named-axiom budget composition, and final approval of all material.*
 

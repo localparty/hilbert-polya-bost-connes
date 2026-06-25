@@ -2,7 +2,7 @@
 
 **The Bost-Connes Modular Generator as a candidate Hilbert-Pólya Operator, formalized in Lean 4**
 
-*G Six. math.OA / math.NT submission, 2026.*
+*G Six. 2026.*
 
 <!-- DOI badges are placeholders until Zenodo mint at publication. -->
 <!-- [![Paper DOI](https://zenodo.org/badge/DOI/PENDING_PAPER_DOI.svg)](https://doi.org/PENDING_PAPER_DOI) -->
@@ -104,7 +104,7 @@ No axiom in the budget invokes the Riemann Hypothesis in its published proof.
   title  = {The {B}ost--{C}onnes {M}odular {G}enerator as a candidate
             {H}ilbert--{P}{\'o}lya {O}perator, formalized in {L}ean~4},
   year   = {2026},
-  note   = {math.OA / math.NT submission. Companion Lean 4 formalization at
+  note   = {Companion Lean 4 formalization at
             \url{https://github.com/localparty/hilbert-polya-bost-connes-lean}
             (commit 53e12d8, v0.1); Zenodo DOIs pending publication.}
 }
