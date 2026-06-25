@@ -1,6 +1,6 @@
 # hilbert-polya-bost-connes
 
-**A Hilbert-Pólya operator scaffold from the Bost-Connes type III_1 factor, formalized in Lean 4**
+**The Bost-Connes Modular Generator as a Hilbert-Pólya Operator, formalized in Lean 4**
 
 *G Six. math.OA / math.NT submission, 2026.*
 
@@ -10,7 +10,7 @@
 [![TT-substrate DOI](https://img.shields.io/badge/TT--substrate-10.5281%2Fzenodo.20674891-blue)](https://doi.org/10.5281/zenodo.20674891)
 [![License: CC-BY-4.0](https://img.shields.io/badge/License-CC--BY--4.0-lightgrey.svg)](LICENSE)
 
-This repository hosts the paper and references to its Lean 4 companion formalization. The paper develops a candidate Hilbert-Pólya operator scaffold $D_\infty$ on the GNS Hilbert space of the Bost-Connes type $\mathrm{III}_1$ factor at the critical KMS state ($\beta = 1$), together with a Galerkin approximation chain whose spectra approximate that of $D_\infty$ in the Bögli–Siegl–Tretter sense; the construction is formalized in Lean 4 against a pinned Mathlib revision.
+This repository hosts the paper and references to its Lean 4 companion formalization. The paper studies the modular generator $D_\infty = -i \cdot \partial_t \log \Delta$ of the Bost-Connes type $\mathrm{III}_1$ factor at the critical KMS state ($\beta = 1$), acting on the GNS Hilbert space, as a candidate Hilbert-Pólya operator, together with a Galerkin approximation chain whose spectra approximate that of $D_\infty$ in the Bögli–Siegl–Tretter sense; the construction is formalized in Lean 4 against a pinned Mathlib revision.
 
 ## Honest framing
 
@@ -101,8 +101,8 @@ No axiom in the budget invokes the Riemann Hypothesis in its published proof.
 ```bibtex
 @misc{Six2026hpbc,
   author = {Six, G.},
-  title  = {A {H}ilbert--{P}{\'o}lya operator scaffold from the {B}ost--{C}onnes
-            type {III}$_1$ factor, formalized in {L}ean~4},
+  title  = {The {B}ost--{C}onnes {M}odular {G}enerator as a
+            {H}ilbert--{P}{\'o}lya {O}perator, formalized in {L}ean~4},
   year   = {2026},
   note   = {math.OA / math.NT submission. Companion Lean 4 formalization at
             \url{https://github.com/localparty/hilbert-polya-bost-connes-lean}
