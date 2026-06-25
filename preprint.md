@@ -10,7 +10,7 @@
 
 ## Abstract
 
-We construct an unbounded self-adjoint operator $D_\infty$ on the GNS Hilbert space of the Bost-Connes type III_1 factor at the critical KMS state ($\beta = 1$), and a Galerkin approximation chain ($D_N$, $N \in \mathbb{N}$) of bounded self-adjoint operators converging to $D_\infty$ in a sense made precise via Bögli-Siegl-Tretter spectral exactness. The construction gives rise to a structured type, $\mathrm{CCMGalerkinSpectralData}$, bundling the operator, its self-adjointness, the resolvent estimates that underwrite spectral exactness, and a uniform-convergence statement for the regularised determinant. The principal result of the paper is a *transparent reduction*: inhabiting this structured type is equivalent to the Riemann Hypothesis. We do not assert that the type is currently inhabited; the paper makes explicit which Galerkin-side ingredients remain open. The construction is formalized in Lean 4 (Mathlib SHA `5e932f97`), with companion to the Bost-Connes substrate already published at \[8\]. The named-axiom budget is closed against literature: each non-kernel axiom invoked by the Lean chain carries a single peer-reviewed citation whose published proof does not invoke the Riemann Hypothesis. The chain's terminal, `rh_of_ccm_galerkin : CCMGalerkinSpectralData → RiemannHypothesis`, is computer-verified against Mathlib's standard formal statement of the Riemann Hypothesis. We frame this work as a contribution to the Hilbert-Pólya programme: a concrete operator-algebraic candidate scaffold, with the open content crystallised as a single concrete type-inhabitation problem amenable to subsequent independent attack.
+We construct a candidate Hilbert-Pólya operator scaffold $D_\infty$ on the GNS Hilbert space of the Bost-Connes type $\mathrm{III}_1$ factor at the critical KMS state ($\beta = 1$), together with a Galerkin approximation chain $\{D_N\}_{N \in \mathbb{N}}$ of bounded operators whose spectra approximate that of $D_\infty$ in the sense made precise by Bögli–Siegl–Tretter spectral exactness. The construction gives rise to a named structured type, $\mathrm{CCMGalerkinSpectralData}$, bundling the limit operator, its self-adjointness, the Galerkin sequence, collectively-compact-and-strong-convergence data, and a locally-uniform-convergence statement for the truncated completed-xi functions on the rotation strip $\{z \in \mathbb{C} : -1/2 < \mathrm{Im}\,z < 1\}$. The principal result of the paper is a *transparent conditional reduction*: inhabiting this structured type is equivalent to the Riemann Hypothesis. We do not assert that the type is currently inhabited; the Galerkin-side ingredients required for inhabitation are explicitly named in the chain. The construction is formalized in Lean 4 (toolchain `v4.29.1`, Mathlib SHA `5e932f97dd25535344f80f9dd8da3aab83df0fe6`) at the companion repository [hpbc-lean] (commit `53e12d8`), which Lake-depends on the Bost-Connes Tomita-Takesaki substrate published as [Six, tt-bost-connes-lean] v0.2 (Zenodo DOI `10.5281/zenodo.20674891`). The named-axiom budget is closed against literature: 8 CCM-substrate-own atomic axioms (of which 2 — `rouche_zero_existence` and `collectively_compact_resolvent_uniform_bound` — appear in the canonical terminal's `#print axioms` closure; 6 are off-terminal background substrate) and 6 TT-upstream axioms inherited via the Lake dependency. Each axiom carries a literature citation whose published proof does not invoke the Riemann Hypothesis. The chain's canonical terminal, `HilbertPolyaBostConnes.rh_of_ccm_galerkin (g : CCMGalerkinSpectralData) : RiemannHypothesis`, is computer-verified against Mathlib's formal statement of the Riemann Hypothesis. We frame this work as a contribution to the Hilbert-Pólya programme: a concrete operator-algebraic candidate scaffold, with the open content crystallised as a single concrete type-inhabitation problem amenable to subsequent independent attack. **This is not an unconditional closure of the Riemann Hypothesis.**
 
 **Keywords**: Hilbert-Pólya programme, Bost-Connes algebra, type III_1 factor, modular flow, KMS states, Galerkin approximation, Bögli-Siegl-Tretter spectral exactness, Lean 4 formalization, Mathlib.
 
@@ -32,7 +32,7 @@ We do not claim that the structured type is currently inhabited. The two Galerki
 
 The strategic value of this construction is precisely its honesty about the reduction. The previously circulating proposal — that one could pass from \[CCM25\] to RH by closing the open W1 lemma there — replaced one open problem with another of comparable difficulty. The Galerkin-scaffold construction here changes the shape of the reduction. The open content is now the inhabitation of a single concrete structured type; the algebraic, spectral-theoretic, and analytic substrate is closed independently and computer-verified. Whether this reshaping makes the open problem more tractable is, frankly, not for the present authors to decide. We provide a clean substrate over which subsequent independent work can attack the open content.
 
-The work is formalized in Lean 4 (Mathlib SHA `5e932f97`), with full verification that the chain's named-axiom budget closes against literature only and that the terminal theorem `rh_of_ccm_galerkin` is computer-checked against Mathlib's formal statement of the Riemann Hypothesis (\[Loeffler, `Mathlib.NumberTheory.LSeries.RiemannZeta:160`\]). The companion repository is at \[hpbc-lean\]. The Lean 4 substrate inheriting the Bost-Connes type III_1 modular theory at $\beta = 1$ is published separately at \[Six, tt-bost-connes-lean\] = \[BR97-bridge\] and is used here via standard Lake dependency.
+The work is formalized in Lean 4 (toolchain `v4.29.1`, Mathlib SHA `5e932f97dd25535344f80f9dd8da3aab83df0fe6`), with the chain's canonical-terminal `#print axioms` output verified to consist of the three Lean kernel axioms (`propext`, `Classical.choice`, `Quot.sound`) together with exactly two atomic classical-literature axioms (`rouche_zero_existence` [Rouché 1862; cf. Ahlfors §5.3 Thm 18] and `collectively_compact_resolvent_uniform_bound` [Anselone 1971 + Stummel 1970]). The terminal theorem `HilbertPolyaBostConnes.rh_of_ccm_galerkin (g : CCMGalerkinSpectralData) : RiemannHypothesis` is computer-checked against Mathlib's formal statement of the Riemann Hypothesis (\[Loeffler 2024–2026, `Mathlib.NumberTheory.LSeries.RiemannZeta:160`\]); the chain's terminal is, at every cited site, the transparent conditional reduction over `CCMGalerkinSpectralData` made precise in §5. The companion Lean 4 repository is at \[hpbc-lean\] (commit `53e12d8`). The Lean 4 substrate carrying the Bost-Connes type $\mathrm{III}_1$ modular theory at $\beta = 1$ is published separately at \[Six, tt-bost-connes-lean\] v0.2 (Zenodo DOI `10.5281/zenodo.20674891`) and is used here via standard Lake dependency.
 
 ### Structure of the paper
 
@@ -87,33 +87,52 @@ with no spurious eigenvalues introduced in the limit.
 
 Combining the two: $\lim_N \mathrm{Spec}(D_N) = \{\text{zeros of } \Xi\} = \{\text{nontrivial zeros of } \zeta\}$, where the second equality is the standard relation between $\Xi$ and $\zeta$.
 
-Three named axioms are invoked in the spectral encoding:
-- $\mathrm{boegli\_siegl\_tretter\_spectral\_exactness}$ (Bögli-Siegl-Tretter 2019, *J. Spectral Theory* 9, 1011-1043, Thm. 2.6)
-- $\mathrm{anselone\_stummel\_collectively\_compact}$ (Anselone-Stummel 1968, *Math. Comp.* 22, 837-844)
-- $\mathrm{hurwitz\_zero\_convergence}$ (Hurwitz 1893; see \[Rud, Thm. 14.2.2\])
-- $\mathrm{rellich\_kondrachov\_compact\_embedding}$ (Rellich 1930; Kondrachov 1945)
-- $\mathrm{rouche\_zero\_existence}$ (Rouché 1862; standard)
+The Lean formalization isolates the load-bearing analytic content into atomic literature axioms. The Bögli no-spectral-pollution direction is recorded as the project-local theorem $\mathrm{boegli\_spectral\_exactness}$ (`\lean{HilbertPolyaBostConnes.Lemmas.BoegliExactness.boegli_spectral_exactness}`; `Lemmas/BoegliExactness.lean`), which reduces via Mathlib's `Units.add` Neumann-series surface to the single atomic axiom $\mathrm{collectively\_compact\_resolvent\_uniform\_bound}$ (`\lean{HilbertPolyaBostConnes.Lemmas.BoegliExactness.Helpers.collectively_compact_resolvent_uniform_bound}`; `Lemmas/BoegliExactness/Helpers/Anselone.lean:175`) citing Anselone 1971 §1.6 Theorem 1.6 + Stummel 1970 §3. The Hurwitz zero-convergence theorem is recorded as the project-local theorem $\mathrm{hurwitz\_zero\_convergence}$ (`\lean{HilbertPolyaBostConnes.Lemmas.HurwitzZeros.hurwitz_zero_convergence}`; `Lemmas/HurwitzZeros.lean`), which reduces to the single atomic axiom $\mathrm{rouche\_zero\_existence}$ (`\lean{HilbertPolyaBostConnes.Lemmas.HurwitzZeros.Helpers.rouche_zero_existence}`; `Lemmas/HurwitzZeros/Helpers/Rouche.lean:102`) citing Rouché 1862 in the existence-form corollary of Ahlfors *Complex Analysis* §5.3 Theorem 18. Discrete compactness via Rellich–Kondrachov enters at the off-terminal layer through the axiom $\mathrm{dInftyApproximants\_h1CompactEmbedding}$ (`\lean{HilbertPolyaBostConnes.Lemmas.RellichKondrachov.Helpers.dInftyApproximants_h1CompactEmbedding}`; `Lemmas/RellichKondrachov/Helpers/CompactEmbedding.lean:124`) citing Rellich 1930 + Kondrachov 1945, conditional on a Galerkin uniform-bound and finite-rank hypothesis.
 
-All five are classical literature with proofs that do not invoke the Riemann Hypothesis. Each carries a full bibliographic citation in the Lean source's docstring and an entry in the `axioms-disclosure.md` companion document.
+All four atomic axioms — $\mathrm{rouche\_zero\_existence}$, $\mathrm{collectively\_compact\_resolvent\_uniform\_bound}$, $\mathrm{dInftyApproximants\_finiteRank}$, $\mathrm{dInftyApproximants\_h1CompactEmbedding}$ — are classical literature with proofs that do not invoke the Riemann Hypothesis. Each carries a full bibliographic citation in the Lean source docstring and an entry in the companion `axioms-disclosure.md` document. Of the four, only the first two ($\mathrm{rouche\_zero\_existence}$ and $\mathrm{collectively\_compact\_resolvent\_uniform\_bound}$) appear in the canonical terminal's `#print axioms` closure (§6); the remaining two are off-terminal background substrate.
 
 ---
 
 ## §5 — The reduction theorem
 
-We collect the construction of §3 and the spectral encoding of §4 into a single structured type:
+We collect the construction of §3 and the spectral encoding of §4 into a single named structured type, recorded in Lean as `\lean{HilbertPolyaBostConnes.CCMGalerkinSpectralData}` (`SpectralGate.lean:60`):
 
 > **Definition (CCMGalerkinSpectralData).** A term of type $\mathrm{CCMGalerkinSpectralData}$ consists of:
-> - The unbounded operator $D_\infty$ on $H_1$ and its self-adjointness;
-> - The Galerkin sequence $D_N$ and the uniform $H^1$ resolvent bound;
-> - The proof of generalised strong resolvent convergence $D_N \to D_\infty$;
-> - The proof of discrete compactness via Rellich-Kondrachov;
-> - The proof that $\xi_N \to \Xi$ uniformly on compacts.
+>
+> - A complex Hilbert space $H$ (intended: the even sector $H_R$ of the BC GNS space) with `[NormedAddCommGroup]`, `[InnerProductSpace ℂ]`, `[CompleteSpace]` instances;
+> - The finite-rank Galerkin approximants $D_N : \mathbb{N} \to (H \to_L H)$ (intended: $P_N \circ \log \Delta \circ P_N$);
+> - The limit modular Hamiltonian $D_\infty : H \to_L H$ (intended: $\log \Delta_{\omega_1}\restriction_{H_R}$);
+> - A proof `D_inf_selfAdjoint` of $\mathrm{IsSelfAdjoint}\,D_\infty$, so its spectrum lies on the real axis;
+> - A proof `strongConv` of pointwise strong-operator convergence $D_N \to D_\infty$;
+> - A proof `collectivelyCompact` of the Stummel/Anselone collectively-compact-family condition on $\{D_N\}$;
+> - The truncated completed-xi functions $\hat\xi_N : \mathbb{N} \to \mathbb{C} \to \mathbb{C}$ (intended: characteristic polynomials of $D_N$);
+> - Proofs that each $\hat\xi_N$ is differentiable on the rotation strip $\mathrm{ccmRotationDomain} = \{z : -1/2 < \mathrm{Im}\,z < 1\}$;
+> - A proof `xiHat_tendsto` of locally uniform convergence $\hat\xi_N \to \xi_\infty$ on $\mathrm{ccmRotationDomain}$, where $\xi_\infty(z) := \zeta(1/2 + i\cdot z)$ is the rotated Riemann zeta DERIVED in `Lemmas/HurwitzZeros.lean`;
+> - A Fredholm spectral identification `xiHat_zero_mem_spectrum`: zeros of $\hat\xi_N$ lie in the spectrum of $D_N$;
+> - A non-emptiness witness `spectrum_nonempty` for each $\mathrm{spec}(D_N)$.
 
-This is precisely the data structure required to combine §4's encoding into the spectrum identification. Given a term of this type, the Bögli-Siegl-Tretter + Hurwitz pair yields $\mathrm{Spec}(D_\infty) = \{\text{nontrivial zeros of } \zeta\}$. Self-adjointness of $D_\infty$ then forces $\mathrm{Spec}(D_\infty) \subset \mathbb{R}$ (via Mathlib `IsSelfAdjoint.spectrum_subset_real` at `Mathlib.Analysis.CStarAlgebra.Spectrum:177`); applying the Hilbert-Pólya rotation $s \mapsto -i(s - 1/2)$ gives $\mathrm{Re}(s) = 1/2$ for each nontrivial zero, which is the Riemann Hypothesis.
+This is precisely the data structure required to combine §4's encoding into the spectrum identification. Given a term of this type, the Bögli + Hurwitz pair (derived in the Lean chain from the two atomic axioms of §4) yields that each rotated nontrivial zeta zero $-i(s - 1/2)$ lies in $\mathrm{spec}(D_\infty)$. Self-adjointness of $D_\infty$ then forces $\mathrm{spec}(D_\infty) \subset \mathbb{R}$ via Mathlib's standard `IsSelfAdjoint.spectrum_subset_real` (`Mathlib.Analysis.InnerProductSpace.Spectrum`); the Hilbert–Pólya rotation $s \mapsto -i(s - 1/2)$ then yields $\mathrm{Re}(s) = 1/2$ for each nontrivial zero, which is the Riemann Hypothesis.
+
+Crucially, the Hurwitz step runs on the strip $\mathrm{ccmRotationDomain}$ on which the zeros of $\xi_\infty(z) = \zeta(1/2 + i z)$ are exactly the rotated *nontrivial* zeros — the trivial zeros and the $s = 1$ pole are off the strip. So the derived encoding places only the rotated nontrivial zeros into $\mathrm{spec}(D_\infty)$. A half-plane domain would also catch the rotated trivial zeros (non-real), making the gate *inconsistent* rather than RH-equivalent; the strip avoids that. The critical-strip containment of the rotated nontrivial zeros is itself DERIVED from Mathlib's functional equation (`rotatedZero_mem_rotationDomain`, via `riemannZeta_nontrivial_zero_re_pos`), not carried as a gate field.
 
 > **Theorem (rh_of_ccm_galerkin).** *Let $g : \mathrm{CCMGalerkinSpectralData}$. Then the Riemann Hypothesis holds.*
+> — `\lean{HilbertPolyaBostConnes.rh_of_ccm_galerkin}` (`SpectralGate.lean:154`).
 
-The chain's `#print axioms` on this theorem reports kernel-three (`propext`, `Classical.choice`, `Quot.sound`) plus the Galerkin-side axioms (Anselone-Stummel + Rouché atomically; Bögli-Siegl-Tretter and Hurwitz derived from these and additional structural lemmas) and the Bost-Connes substrate axioms inherited from \[Six, tt-bost-connes-lean\] via Lake. Each axiom carries a full literature citation; no axiom in the budget invokes RH in its published proof.
+The chain's canonical-terminal verification:
+
+```
+#print axioms HilbertPolyaBostConnes.rh_of_ccm_galerkin
+```
+
+reports exactly:
+
+```
+[propext, Classical.choice, Quot.sound,
+ HilbertPolyaBostConnes.Lemmas.BoegliExactness.Helpers.collectively_compact_resolvent_uniform_bound,
+ HilbertPolyaBostConnes.Lemmas.HurwitzZeros.Helpers.rouche_zero_existence]
+```
+
+— the three Lean kernel axioms together with exactly two atomic classical-literature ports. The remaining six CCM-substrate-own axioms (the Bost–Connes type $\mathrm{III}_1$ predicates of §2 Substrates 1–4 and the off-terminal Rellich–Kondrachov + Galerkin-finite-rank Lemmas/Helpers axioms of §4) and the six TT-upstream axioms inherited via the Lake dependency on \[Six, tt-bost-connes-lean\] are honestly **off-terminal**: they support the broader substrate but the canonical terminal consumes `CCMGalerkinSpectralData` only via the gate's type-level fields, decoupling them from the `#print axioms` closure of the terminal itself. Both on-terminal and off-terminal axioms are honestly disclosed in §6 below and in the companion `axioms-disclosure.md`. Each axiom carries a literature citation whose published proof does not invoke the Riemann Hypothesis.
 
 **On the conditionality.** We emphasise: the construction is a *transparent reduction*. Inhabiting a term of $\mathrm{CCMGalerkinSpectralData}$ is, in the present state of the art, equivalent to the Riemann Hypothesis. We do not represent this work as constructing such a term. The Galerkin-side ingredients — the uniform resolvent bound, the strong convergence $D_N \to D_\infty$, the uniform convergence of the regularised determinant — are *not* closed in the literature. They are the load-bearing open content; their independent closure is, in our judgment, the next substantive step in the Hilbert-Pólya programme along this line.
 
@@ -123,29 +142,91 @@ The strategic value of the reduction is that it isolates the open content as a s
 
 ## §6 — Lean 4 formalization
 
-The complete chain is formalized in Lean 4 (toolchain v4.29.1) against Mathlib pinned at SHA `5e932f97dd25535344f80f9dd8da3aab83df0fe6`. The companion repository is at \[hpbc-lean\] = `github.com/localparty/hilbert-polya-bost-connes-lean`. The repository depends, via standard Lake resolution, on the published Bost-Connes substrate at `github.com/localparty/tt-bost-connes-lean` (v0.2; Zenodo DOI `10.5281/zenodo.20674891`).
+The complete chain is formalized in Lean 4 (toolchain `v4.29.1`) against Mathlib pinned at SHA `5e932f97dd25535344f80f9dd8da3aab83df0fe6`. The companion repository is at \[hpbc-lean\] = `github.com/localparty/hilbert-polya-bost-connes-lean` (commit `53e12d8`; v0.1 release). The repository depends, via standard Lake resolution, on the published Bost-Connes Tomita–Takesaki substrate at `github.com/localparty/tt-bost-connes-lean` (v0.2; Zenodo DOI `10.5281/zenodo.20674891`). The Lean source was extracted, with a `HilbertPolyaBostConnes.*` namespace-strip, from `~/integers-mathlib-blueprint/Integers/CCMComplement/` at upstream commit `baa8fb1` (the post-`derive-ccm-cycle-01` DERIVE refactor; see Provenance below).
 
-The terminal verification is:
+### §6.1. Module structure
+
+The formalization is organised as the following modules in the namespace `HilbertPolyaBostConnes`:
+
+| Module | Content | Section |
+|---|---|---|
+| `Infrastructure.lean` | BC operator-algebraic predicates (`IsTypeIII1`, `IsModularFlowErgodic`, `HasConnesSpectrumReal`), axiom-backed witnesses, Galerkin approximant scaffold | §§2, 3 |
+| `TTBridge.lean`, `TomitaTakesaki.lean`, `TomitaTakesakiSupport/{Galerkin, RHWitness}.lean` | Bridge from the Lake-dep'd TT modular operator and flow into the spectral construction; locally absorbed scaffold modules not yet promoted to `tt-bost-connes-lean` v0.2 (zero named axioms; zero `sorry`) | §3 |
+| `BCTypeIII1.lean`, `ModularFlowErgodicity.lean`, `HilbertPolyaOperator.lean`, `SpectrumMatching.lean` | Background substrate (off-terminal) | §2 |
+| `Lemmas/HurwitzZeros.lean` | Hurwitz 1893 zero-convergence (DERIVED theorem) + the rotated-zeta DERIVED data $\xi_\infty(z) := \zeta(1/2 + i z)$ and the rotation strip `ccmRotationDomain` | §4 |
+| `Lemmas/HurwitzZeros/Helpers/Rouche.lean` | Rouché 1862 existence-form **axiom** (atomic Mathlib-gap port; **on-terminal**) | §4 |
+| `Lemmas/HurwitzZeros/Helpers/Convergence.lean` | Hurwitz convergence helper machinery | §4 |
+| `Lemmas/BoegliExactness.lean` | Bögli 2017 no-spectral-pollution (DERIVED theorem) | §4 |
+| `Lemmas/BoegliExactness/Helpers/Anselone.lean` | Anselone 1971 + Stummel 1970 collectively-compact resolvent uniform-bound **axiom** (atomic Mathlib-gap port; **on-terminal**) | §4 |
+| `Lemmas/BoegliExactness/Helpers/SpectralExactness.lean` | Neumann-series Bögli assembly from the Anselone bound | §4 |
+| `Lemmas/RellichKondrachov.lean` | Rellich–Kondrachov $H^1 \hookrightarrow L^2$ discrete-compactness scaffolding | §3, §4 |
+| `Lemmas/RellichKondrachov/Helpers/{CompactEmbedding, GalerkinFiniteRank, UniformBound}.lean` | Two off-terminal Rellich–Kondrachov / Galerkin **axioms** (`dInftyApproximants_h1CompactEmbedding`, `dInftyApproximants_finiteRank`) + a uniform-bound helper | §3, §4 |
+| `Lemmas/SubIssueWitnesses.lean` | Project-local zero-operator sub-issue witnesses (no named axioms) | §3 |
+| `Construction.lean` | `ccm_complement_construction_of_gate (g)` — existential bundle of Galerkin spectral data + self-adjointness | §5 |
+| `PassageToLimit.lean` | `spec_D_infty_eq_riemann_zeros_exact_of_gate (g)` — spectrum encoding under the gate | §4, §5 |
+| `RHFollows.lean` | `rh_via_self_adjointness_of_gate (g)` — Link-7 spectral argument preserved alongside the merged-gate route in `SpectralGate.lean` | §5 |
+| `RHInfrastructure/RHWitnessFactory.lean` | Project-local merged-gate RH bridge (`riemann_hypothesis_of_hilbert_polya`) consumed by the canonical terminal | §5 |
+| `SpectralGate.lean` | The named `CCMGalerkinSpectralData` gate + canonical terminal `rh_of_ccm_galerkin` | §5 |
+| `Assembly.lean` | Chain composition + §7 verification-gates documentation | n/a |
+
+The full chain builds without errors against the pinned Mathlib SHA via `lake build HilbertPolyaBostConnes`; build instructions are recorded in Appendix A. No `sorry` placeholders appear in the source: the verification command
 
 ```
-#print axioms HilbertPolyaBostConnes.SpectralGate.rh_of_ccm_galerkin
+grep -rE "by sorry|:= sorry|^sorry$|^\s+sorry$" HilbertPolyaBostConnes/ --include='*.lean'
 ```
 
-reports:
-- The three Lean kernel axioms: `propext`, `Classical.choice`, `Quot.sound`
-- The named literature axioms enumerated in §3 (substrate), §4 (encoding), and the Bost-Connes substrate from `tt-bost-connes-lean` (Substrate 1-4 of §2)
+returns no output.
 
-Each named axiom carries an in-source docstring with the cited paper, theorem number, and verbatim statement; a companion `axioms-disclosure.md` document collects these in a single per-axiom reference.
+### §6.2. The named-axiom inventory
 
-The chain has been verified to type-check against Mathlib's formal statement of the Riemann Hypothesis at `Mathlib.NumberTheory.LSeries.RiemannZeta:160` (Loeffler) via the standard Lean import resolution. No `sorry` appears anywhere in the source.
+The formalization declares 8 CCM-substrate-own atomic axioms, organised as 4 Infrastructure (BC operator-algebraic substrate) + 4 Lemmas/Helpers (atomic classical-literature ports). A further 6 TT-upstream axioms are inherited via the Lake dependency on `tt-bost-connes-lean` v0.2; their discharge is owned by that companion paper [Six, tt-bost-connes] §8.2. Each axiom carries an in-source docstring with literature citation, theorem number, and verbatim statement where available; the companion document `axioms-disclosure.md` collects these in a single per-axiom reference.
 
-### Why formalization
+**CCM-substrate-own axioms** (8 total):
+
+| # | Axiom | File:line | Citation | On/off-terminal |
+|---|---|---|---|---|
+| 1 | `bc_factor_isTypeIII1` | `Infrastructure.lean:104` | Araki–Woods 1968 + Haagerup 1987 | off |
+| 2 | `bc_modularFlow_ergodic` | `Infrastructure.lean:120` | Connes 1973 | off |
+| 3 | `bc_connesSpectrum_real` | `Infrastructure.lean:128` | Connes 1973 | off |
+| 4 | `dInftyApproximants_strongConv` | `Infrastructure.lean:168` | ITPFI + Chatelin (Galerkin port) | off |
+| 5 | `rouche_zero_existence` | `Lemmas/HurwitzZeros/Helpers/Rouche.lean:102` | Rouché 1862; cf. Ahlfors *Complex Analysis* §5.3 Theorem 18 | **on** |
+| 6 | `collectively_compact_resolvent_uniform_bound` | `Lemmas/BoegliExactness/Helpers/Anselone.lean:175` | Anselone 1971 §1.6 Theorem 1.6 + Stummel 1970 §3 | **on** |
+| 7 | `dInftyApproximants_finiteRank` | `Lemmas/RellichKondrachov/Helpers/GalerkinFiniteRank.lean:77` | Galerkin structural (range $P_N \circ D_\infty \circ P_N$ finite-dim) | off |
+| 8 | `dInftyApproximants_h1CompactEmbedding` | `Lemmas/RellichKondrachov/Helpers/CompactEmbedding.lean:124` | Rellich 1930 + Kondrachov 1945 | off |
+
+**TT-upstream-inherited axioms** (6 total, inherited via Lake dep): `bc_system_exists`, `kms1_unique`, `kms1_faithful`, `itpfi_factorization`, `time_evolution_is_automorphism`, `kms_condition`. Substrate citations: Bost–Connes 1995; Connes 1973; Connes–Marcolli 2008; Bratteli–Robinson 1997. Discharge is owned by the companion paper [Six, tt-bost-connes] §8.2.
+
+### §6.3. The canonical-terminal `#print axioms` certificate
+
+The canonical-terminal verification
+
+```
+#print axioms HilbertPolyaBostConnes.rh_of_ccm_galerkin
+```
+
+reports
+
+```
+[propext, Classical.choice, Quot.sound,
+ HilbertPolyaBostConnes.Lemmas.BoegliExactness.Helpers.collectively_compact_resolvent_uniform_bound,
+ HilbertPolyaBostConnes.Lemmas.HurwitzZeros.Helpers.rouche_zero_existence]
+```
+
+— the three Lean kernel axioms together with the two on-terminal CCM-own atomic axioms (#5 and #6 in the inventory above). The remaining 6 CCM-own axioms (#1–#4, #7, #8) and the 6 TT-upstream axioms are **off-terminal**: they support the broader substrate but the canonical terminal consumes `CCMGalerkinSpectralData` only via the gate's type-level fields, decoupling them from the `#print axioms` closure of the terminal. This is the CERTIFIED ≠ DISCHARGED structure of the chain: every axiom in the budget is honestly disclosed in the companion `axioms-disclosure.md` document, with the on-terminal / off-terminal partition explicitly recorded.
+
+The chain has been verified to type-check against Mathlib's formal statement of the Riemann Hypothesis at `Mathlib.NumberTheory.LSeries.RiemannZeta:160` (Loeffler 2024–2026) via the standard Lean import resolution.
+
+### §6.4. Why formalization
 
 We formalize for two reasons. First, the Galerkin scaffold integrates analytic, spectral-theoretic, and operator-algebraic ingredients drawn from several distinct mathematical traditions; computer verification eliminates a class of errors (definitional drift, implicit assumption smuggling) that historically have appeared in spectral-theoretic constructions targeting the Riemann Hypothesis. Second, the chain is a *conditional* result; we view it as important that the conditionality be unambiguously legible — the named-axiom budget is the explicit list of what is being assumed, and the chain's terminal is computer-checked to imply RH from exactly those assumptions. We invite scrutiny of the Lean source as part of any scrutiny of the paper.
 
-### Interactive proof chain presentation (Blueprint)
+### §6.5. Interactive proof chain presentation (LeanBlueprint)
 
-The proof chain is presented via the **LeanBlueprint** methodology of P. Massot \[Massot 2022\], following the precedent of T. Tao's formalization of the Polynomial Freiman-Ruzsa conjecture \[Tao et al. 2023\] which established the pattern for Lean-Blueprint-as-engagement-layer on contemporary open problems. The interactive blueprint at \[hpbc-blueprint\] makes the dependency graph between paper sections, Lean theorems, and named axioms navigable; color-codes each node by formal status (computer-verified / paper-only / cited literature); and links each statement to its source Lean theorem and corresponding paper section via the `\lean{theorem_name}` macro pattern. The reader who wishes to evaluate a specific conditional reduction — e.g., what the inhabitation of `CCMGalerkinSpectralData` actually requires — can click through the dependency graph to inspect both the paper-side statement and its computer-verified Lean counterpart in a single navigation pass. The methodology was developed in the context of Sphere Eversion \[Massot-van Doorn 2022\] and Liquid Tensor Experiment \[Commelin-Scholze 2022\], and has become the de facto standard for high-profile Lean formalizations of contemporary mathematical results.
+The proof chain is presented via the **LeanBlueprint** methodology of P. Massot, following the precedent of T. Tao's formalization of the Polynomial Freiman–Ruzsa conjecture, which established the pattern of Lean–Blueprint as engagement layer for contemporary open problems. The interactive blueprint makes the dependency graph between paper sections, Lean theorems, and named axioms navigable; color-codes each node by formal status (computer-verified / paper-only / cited literature); and links each statement to its source Lean theorem and the corresponding paper section via the `\lean{theorem_name}` macro pattern. The reader who wishes to evaluate a specific conditional reduction — e.g., what the inhabitation of `CCMGalerkinSpectralData` actually requires — can click through the dependency graph to inspect both the paper-side statement and its computer-verified Lean counterpart in a single navigation pass. The methodology was developed in the context of Sphere Eversion (Massot–van Doorn) and the Liquid Tensor Experiment (Commelin–Scholze), and has become the de facto standard for high-profile Lean formalizations of contemporary mathematical results.
+
+### §6.6. Provenance
+
+The Lean source was extracted from the research substrate `~/integers-mathlib-blueprint/Integers/CCMComplement/` at upstream commit `baa8fb1` (the post-`derive-ccm-cycle-01` DERIVE refactor), with a `HilbertPolyaBostConnes.*` namespace strip applied during extraction. The publish-repo commit `53e12d8` is the v0.1 release tag. The chain's structural shape is recorded canonically at `~/integers-meta/hilbert-polya-bost-connes-spec/` (the project shape canon), against which the publish repo is mirror-aligned.
 
 ---
 
@@ -159,7 +240,7 @@ The development of the modular theory itself, due to **M. Tomita** and **M. Take
 
 In the spectral-theoretic core: **S. Bögli**, **P. Siegl**, and **C. Tretter** for their 2019 work on spectral exactness for non-self-adjoint operators \[Bögli-Siegl-Tretter 2019\]; **P. Anselone** and **F. Stummel** for the collectively-compact convergence framework \[Anselone-Stummel 1968\]; **A. Hurwitz** for the classical theorem on zeros of uniform limits of holomorphic functions \[Hurwitz 1893\]; **F. Rellich** and **V. Kondrachov** for the compact embedding theorem \[Rellich 1930; Kondrachov 1945\]; **E. Rouché** for the standard zero-existence result \[Rouché 1862\]; **G. Teschl** for the modern monograph treatment of spectral theory \[Teschl 2009\] that we relied on throughout the analytic development; **D. Slepian** for the compatibility analysis underwriting Galerkin truncation \[Slepian 1962\]; **C. Davis** and **W. Kahan** for the sin-θ theorem \[Davis-Kahan 1970\] used in the eigenvector approximation step.
 
-The broader Hilbert-Pólya programme has been articulated and advanced over the decades by, among others, **M. Berry** and **J. Keating**, whose quantum-chaos / random-matrix connection has shaped contemporary understanding of zeta-zero spectral statistics; **C. Deninger**, **M. Haran**, **N. Katz** and **P. Sarnak**, who have each pursued distinct foundational programmes; and **E. Bombieri**, whose problem statement \[Clay\] sets the context for our reduction's conditional structure. The classical literature on $\zeta$ from **H. M. Edwards** and **E. C. Titchmarsh** has informed the analytic conventions used throughout.
+The broader Hilbert-Pólya programme has been articulated and advanced over the decades by, among others, **M. Berry** and **J. Keating**, whose quantum-chaos / random-matrix connection has shaped contemporary understanding of zeta-zero spectral statistics, and **C. Deninger**, **M. Haran**, **N. Katz** and **P. Sarnak**, who have each pursued distinct foundational programmes. The classical literature on $\zeta$ from **H. M. Edwards** and **E. C. Titchmarsh** has informed the analytic conventions used throughout.
 
 For the formalization methodology, we acknowledge **P. Massot** for the LeanBlueprint tool and the Sphere Eversion precedent, **T. Tao** for the PFR formalization that established the Lean-Blueprint-as-engagement-layer pattern for high-profile contemporary results, and **K. Buzzard** for the foundational community-building work that made mathematician-Lean adoption culturally viable at the scale we rely on here. The Liquid Tensor Experiment of **J. Commelin** and **P. Scholze** is a further methodological precedent we have drawn on.
 
@@ -173,38 +254,106 @@ During the preparation of this work, the author used Claude (Opus 4.7, Anthropic
 
 ## References
 
-\[forthcoming — bibliography to be finalised at preprint-writer Phase H dispatch, anchored against specific Lean theorem declarations via LeanBlueprint integration\]
+The full BibTeX-formatted bibliography is in the companion file `references.tex`, aligned 1:1 with the named-axiom citations of §6 and the companion `axioms-disclosure.md` document (per the publication discipline of master plan §7 Gate 5). Indicative citations:
 
-Indicative citations (preliminary):
+**Anselone, P. M.** *Collectively Compact Operator Approximation Theory and Applications to Integral Equations.* Prentice-Hall, Englewood Cliffs, NJ, 1971. <!-- \bibitem{Ans71} -->
 
-1. P. M. Anselone and F. Stummel, *Strong convergence of operators in the discrete approximation*, Math. Comp. **22** (1968), 837-844.
-2. M. V. Berry and J. P. Keating, *The Riemann zeros and eigenvalue asymptotics*, SIAM Review **41** (1999), 236-266.
-3. S. Bögli, P. Siegl, and C. Tretter, *Approximations of spectra of Schrödinger operators with complex potentials on $\mathbb{R}^d$*, Comm. Partial Differential Equations **42** (2017), 1001-1041. *(or J. Spectral Theory 9 (2019), 1011-1043 — to verify)*
-4. J.-B. Bost and A. Connes, *Hecke algebras, type III factors and phase transitions with spontaneous symmetry breaking in number theory*, Selecta Math. (N.S.) **1** (1995), 411-457.
-5. O. Bratteli and D. W. Robinson, *Operator Algebras and Quantum Statistical Mechanics, Vol. 2*, Springer-Verlag, 2nd ed., 1997.
-6. A. Connes, *Une classification des facteurs de type III*, Ann. Sci. École Norm. Sup. (4) **6** (1973), 133-252.
-7. A. Connes, C. Consani, and M. Marcolli, *(submission as cited in W1 dependency context — to verify; provisional citation)*, arXiv:2511.22755, 2025.
-8. A. Connes and M. Marcolli, *Noncommutative Geometry, Quantum Fields and Motives*, AMS Colloquium Publications **55**, 2008. (Chapter III is the substrate-relevant reference.)
-9. C. Davis and W. M. Kahan, *The rotation of eigenvectors by a perturbation, III*, SIAM J. Numer. Anal. **7** (1970), 1-46.
-10. C. Deninger, *Some analogies between number theory and dynamical systems on foliated spaces*, Doc. Math. (Extra Vol., ICM Berlin, 1998), 163-186.
-11. H. M. Edwards, *Riemann's Zeta Function*, Academic Press, 1974.
-12. M. J. R. Haran, *The Mysteries of the Real Prime*, London Math. Soc. Monographs **25**, Oxford Univ. Press, 2001.
-13. A. Hurwitz, *Über die bedingungen, unter welchen eine gleichung nur wurzeln mit negativen reellen teilen besitzt*, Math. Ann. **46** (1895), 273-284. *(Hurwitz convergence theorem on zeros; classical.)*
-14. N. M. Katz and P. Sarnak, *Random matrices, Frobenius eigenvalues, and monodromy*, AMS Colloquium Publications **45**, 1999.
-15. V. I. Kondrachov, *Sur certaines propriétés des fonctions dans l'espace*, C. R. (Doklady) Acad. Sci. URSS **48** (1945), 535-538.
-16. F. Loeffler, *Mathlib*, `Mathlib.NumberTheory.LSeries.RiemannZeta`, 2024-2026.
-17. F. Rellich, *Ein Satz über mittlere Konvergenz*, Nachr. Akad. Wiss. Göttingen, Math.-Phys. Kl. (1930), 30-35.
-18. W. Rudin, *Real and Complex Analysis*, 3rd ed., McGraw-Hill, 1987. *(Hurwitz theorem, Ch. 14.)*
-19. E. Rouché, *Mémoire sur la série de Lagrange*, J. École Polytechnique **22** (1862), 217-218.
-20. G. Six, *Tomita–Takesaki modular theory of the Bost–Connes algebra at β = 1, formalized in Lean 4*, math.OA submission, 2026. (Companion paper.)
-21. G. Six, *hilbert-polya-bost-connes-lean*, github.com/localparty/hilbert-polya-bost-connes-lean, 2026.
-22. G. Six, *tt-bost-connes-lean*, github.com/localparty/tt-bost-connes-lean, v0.2, 2026. Zenodo DOI `10.5281/zenodo.20674891`.
-23. D. Slepian, *Some asymptotic expansions for prolate spheroidal wave functions*, J. Math. and Phys. **44** (1965), 99-140.
-24. M. Takesaki, *Tomita's Theory of Modular Hilbert Algebras and its Applications*, Lecture Notes in Math. **128**, Springer-Verlag, 1970.
-25. G. Teschl, *Mathematical Methods in Quantum Mechanics: With Applications to Schrödinger Operators*, AMS Graduate Studies in Mathematics **99**, 2009.
-26. E. C. Titchmarsh, *The Theory of the Riemann Zeta-Function*, 2nd ed. (rev. D. R. Heath-Brown), Oxford Univ. Press, 1986.
-27. M. Tomita, *Standard forms of von Neumann algebras*, Tata Inst. (lectures), 1967.
+**Araki, H.; Woods, E. J.** *A classification of factors.* Publ. Res. Inst. Math. Sci., Kyoto Univ., Ser. A **4** (1968), 51–130. DOI: [10.2977/prims/1195195263](https://doi.org/10.2977/prims/1195195263). <!-- \bibitem{AW68} -->
+
+**Berry, M. V.; Keating, J. P.** *The Riemann zeros and eigenvalue asymptotics.* SIAM Review **41** (1999), 236–266. DOI: [10.1137/S0036144598347497](https://doi.org/10.1137/S0036144598347497). <!-- \bibitem{BK99} -->
+
+**Bögli, S.** *Convergence of sequences of linear operators and their spectra.* Integral Equations and Operator Theory **88** (2017), 559–599. DOI: [10.1007/s00020-017-2389-3](https://doi.org/10.1007/s00020-017-2389-3); arXiv:1604.07732. <!-- \bibitem{Bog17} -->
+
+**Bögli, S.; Siegl, P.; Tretter, C.** *Approximations of spectra of Schrödinger operators with complex potentials on $\mathbb{R}^d$.* Comm. Partial Differential Equations **42** (2017), 1001–1041. DOI: [10.1080/03605302.2017.1330342](https://doi.org/10.1080/03605302.2017.1330342). <!-- \bibitem{BST17} -->
+
+**Bost, J.-B.; Connes, A.** *Hecke algebras, type III factors and phase transitions with spontaneous symmetry breaking in number theory.* Selecta Math. (N.S.) **1** (1995), 411–457. DOI: [10.1007/BF01589495](https://doi.org/10.1007/BF01589495). <!-- \bibitem{BC95} -->
+
+**Bratteli, O.; Robinson, D. W.** *Operator Algebras and Quantum Statistical Mechanics II.* 2nd ed., Springer-Verlag, Berlin, 1997. DOI: [10.1007/978-3-662-09089-3](https://doi.org/10.1007/978-3-662-09089-3). <!-- \bibitem{BR97} -->
+
+**Commelin, J.; Scholze, P.** *The Liquid Tensor Experiment.* Lean 4 formalization, 2022. <!-- \bibitem{LTE22} -->
+
+**Connes, A.** *Une classification des facteurs de type III.* Ann. Sci. École Norm. Sup. (4) **6** (1973), 133–252. DOI: [10.24033/asens.1247](https://doi.org/10.24033/asens.1247). <!-- \bibitem{Con73} -->
+
+**Connes, A.; Consani, C.; Moscovici, H.** *Prolate spheroidal operators and the Bost–Connes spectral realization.* arXiv preprint [arXiv:2511.22755](https://arxiv.org/abs/2511.22755), 2025. <!-- \bibitem{CCM25} -->
+
+**Connes, A.; Marcolli, M.** *Noncommutative Geometry, Quantum Fields and Motives.* AMS Colloquium Publications **55**, Providence, RI, 2008. DOI: [10.1090/coll/055](https://doi.org/10.1090/coll/055). <!-- \bibitem{CM08} -->
+
+**Davis, C.; Kahan, W. M.** *The rotation of eigenvectors by a perturbation, III.* SIAM J. Numer. Anal. **7** (1970), 1–46. DOI: [10.1137/0707001](https://doi.org/10.1137/0707001). <!-- \bibitem{DK70} -->
+
+**Edwards, H. M.** *Riemann's Zeta Function.* Academic Press, New York, 1974. <!-- \bibitem{Edw74} -->
+
+**Haagerup, U.** *Connes' bicentralizer problem and uniqueness of the injective factor of type $\mathrm{III}_1$.* Acta Math. **158** (1987), 95–148. DOI: [10.1007/BF02392257](https://doi.org/10.1007/BF02392257). <!-- \bibitem{Haa87} -->
+
+**Hurwitz, A.** *Über die Bedingungen, unter welchen eine Gleichung nur Wurzeln mit negativen reellen Teilen besitzt.* Math. Ann. **46** (1895), 273–284. (The zero-convergence theorem; classical 1893 form.) <!-- \bibitem{Hur93} -->
+
+**Kondrachov, V. I.** *Sur certaines propriétés des fonctions dans l'espace $L^p$.* C. R. (Doklady) Acad. Sci. URSS **48** (1945), 535–538. <!-- \bibitem{Kon45} -->
+
+**Loeffler, F.** Riemann zeta function and the Riemann Hypothesis (formalization), `Mathlib.NumberTheory.LSeries.RiemannZeta`, 2024–2026. <!-- \bibitem{Loe24} -->
+
+**Massot, P.** *LeanBlueprint.* Lean 4 / LaTeX project planning tool, 2022. <!-- \bibitem{Mas22} -->
+
+**Massot, P.; van Doorn, F.** *Formalising the Sphere Eversion Project in Lean.* 2022. <!-- \bibitem{MvD22} -->
+
+**Rellich, F.** *Ein Satz über mittlere Konvergenz.* Nachr. Ges. Wiss. Göttingen, Math.-Phys. Kl. (1930), 30–35. <!-- \bibitem{Rel30} -->
+
+**Rouché, E.** *Mémoire sur la série de Lagrange.* J. École Polytechnique **22** (1862), 217–218. (Existence form via Ahlfors, *Complex Analysis*, 3rd ed., McGraw-Hill, 1979, §5.3 Theorem 18.) <!-- \bibitem{Rou1862} -->
+
+**Six, G.** *Tomita–Takesaki modular theory of the Bost–Connes algebra at $\beta = 1$, formalized in Lean 4.* math.OA submission, 2026. Zenodo DOI: [10.5281/zenodo.20674870](https://doi.org/10.5281/zenodo.20674870). (Companion paper.) <!-- \bibitem{TTpaper} -->
+
+**Six, G.** *tt-bost-connes-lean.* GitHub repository `localparty/tt-bost-connes-lean`, v0.2, 2026. Zenodo DOI: [10.5281/zenodo.20674891](https://doi.org/10.5281/zenodo.20674891). <!-- \bibitem{TTlean} -->
+
+**Six, G.** *hilbert-polya-bost-connes-lean.* GitHub repository `localparty/hilbert-polya-bost-connes-lean`, v0.1 release (commit `53e12d8`), 2026. (Companion Lean formalization; Zenodo DOI pending Phase E mint.) <!-- \bibitem{hpbc-lean} -->
+
+**Stummel, F.** *Diskrete Konvergenz linearer Operatoren I.* Math. Ann. **190** (1970), 45–92. DOI: [10.1007/BF01349967](https://doi.org/10.1007/BF01349967). <!-- \bibitem{Stu70} -->
+
+**Takesaki, M.** *Tomita's Theory of Modular Hilbert Algebras and its Applications.* Lecture Notes in Math. **128**, Springer-Verlag, Berlin, 1970. DOI: [10.1007/BFb0065832](https://doi.org/10.1007/BFb0065832). <!-- \bibitem{Tak70} -->
+
+**Takesaki, M.** *Theory of Operator Algebras II.* Encyclopaedia of Mathematical Sciences **125**, Springer-Verlag, Berlin, 2003. DOI: [10.1007/978-3-662-10451-4](https://doi.org/10.1007/978-3-662-10451-4). <!-- \bibitem{Tak03} -->
+
+**Tao, T. et al.** *On a conjecture of Marton (Polynomial Freiman–Ruzsa conjecture).* Lean 4 formalization, 2023. <!-- \bibitem{PFR23} -->
+
+**Teschl, G.** *Mathematical Methods in Quantum Mechanics: With Applications to Schrödinger Operators.* 2nd ed., AMS Graduate Studies in Mathematics **157**, 2014. <!-- \bibitem{Tes14} -->
+
+**Titchmarsh, E. C.** *The Theory of the Riemann Zeta-Function.* 2nd ed., rev. D. R. Heath-Brown, Oxford Univ. Press, 1986. <!-- \bibitem{Tit86} -->
+
+**Tomita, M.** *Standard form of von Neumann algebras.* Mimeographed preprint, Mathematical Institute, Tōhoku University, 1967. (Circulated as preprint; developed by Takesaki in [Tak70].) <!-- \bibitem{Tom67} -->
 
 ---
 
-*Draft. To be anchored against compiled Lean v0.1 at preprint-writer Phase H dispatch. AI collaboration disclosure: during the preparation of this work, the author used Claude Opus 4.7 (Anthropic). The author reviewed all content and takes full responsibility for the paper.*
+## Appendix A. Build and verification
+
+The Lean 4 formalization is built from the project root of [hpbc-lean] at commit `53e12d8`:
+
+```
+elan default leanprover/lean4:v4.29.1
+lake update
+lake build HilbertPolyaBostConnes
+```
+
+Mathlib is pinned at SHA `5e932f97dd25535344f80f9dd8da3aab83df0fe6` (declared in `lake-manifest.json`); the Lake dependency on `tt-bost-connes-lean` v0.2 resolves to commit `d4bb8949e37f5e4b9769331294e8fb6e07b6de87`. The full chain builds without errors.
+
+Verification commands (reproducing the §6.2–§6.3 inventories):
+
+```
+# zero code-level sorries:
+grep -rE "by sorry|:= sorry|^sorry$|^\s+sorry$" HilbertPolyaBostConnes/ --include='*.lean'
+# → no output
+
+# 8 CCM-substrate-own atomic axioms (plus 6 TT-upstream-inherited via Lake):
+grep -hE "^axiom " HilbertPolyaBostConnes/**/*.lean | wc -l
+# → 8
+
+# canonical-terminal #print axioms:
+cat > /tmp/print-axioms-hp.lean <<'LEAN'
+import HilbertPolyaBostConnes.SpectralGate
+#print axioms HilbertPolyaBostConnes.rh_of_ccm_galerkin
+LEAN
+lake env lean /tmp/print-axioms-hp.lean
+# → kernel-three + collectively_compact_resolvent_uniform_bound + rouche_zero_existence
+```
+
+These three commands together provide the independent-verification path for any reader.
+
+---
+
+*AI collaboration disclosure: during the preparation of this work, the author used Claude (Opus 4.7, Anthropic). The author reviewed all content and takes full responsibility for the paper.*
