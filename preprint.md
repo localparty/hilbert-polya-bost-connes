@@ -1,10 +1,14 @@
-# A Hilbert-Pólya operator scaffold from the Bost-Connes type III_1 factor, formalized in Lean 4
+# A Hilbert-Pólya operator scaffold from the Bost-Connes type III_1 factor, formalized in Lean 4²
 
 **G Six**¹
 
-¹*San Francisco, CA, USA*
+*San Francisco, CA, USA*
 
-*Draft — math.OA / math.NT submission, 2026.*
+*math.OA / math.NT submission, 2026.*
+
+¹ *During the preparation of this work, the author used Claude Opus 4.7.*
+
+² *The Lean 4 formalization at [https://github.com/localparty/hilbert-polya-bost-connes-lean](https://github.com/localparty/hilbert-polya-bost-connes-lean) (Zenodo DOI assigned at Phase E publication time per the master-plan publication sequencing) Lake-depends on the companion Bost-Connes Tomita-Takesaki substrate at [https://github.com/localparty/tt-bost-connes-lean](https://github.com/localparty/tt-bost-connes-lean) v0.2 (independently archived at DOI [10.5281/zenodo.20674891](https://doi.org/10.5281/zenodo.20674891)); the formalization permits independent machine checking of the structural scaffold of every theorem in §§3–6. The substrate inventory — eight CCM-substrate-own atomic axioms (§6.2; of which two, `rouche_zero_existence` and `collectively_compact_resolvent_uniform_bound`, appear in the canonical terminal's `#print axioms` closure; six are off-terminal background substrate) and six TT-upstream axioms inherited via the Lake dependency — carries the load-bearing analytic content. Each axiom carries a literature citation whose published proof does not invoke the Riemann Hypothesis (§6.2, and the companion `axioms-disclosure.md`); the Mathlib integration roadmap §7 records the formalization-side discharge paths for the on-terminal axioms.*
 
 ---
 
@@ -54,7 +58,7 @@ The cumulative picture, as documented in the canonical problem statement \[Bom00
 
 ### Structure of the paper
 
-§2 fixes notation and recapitulates the Bost-Connes substrate at $\beta = 1$, with references to the companion paper \[Six, tt-bost-connes\] for the modular-theoretic facts used here. §3 develops the Galerkin approximation framework and constructs $D_\infty$. §4 establishes the spectral encoding under the Galerkin-side hypotheses (uniform convergence, compact embedding, Bögli-Siegl-Tretter exactness). §5 states the reduction theorem precisely and contextualises the conditionality. §6 describes the Lean 4 formalization and the named-axiom budget. §7 closes with acknowledgments and the AI-collaboration disclosure.
+§2 fixes notation and recapitulates the Bost-Connes substrate at $\beta = 1$, with references to the companion paper \[Six, tt-bost-connes\] for the modular-theoretic facts used here. §3 develops the Galerkin approximation framework and constructs $D_\infty$. §4 establishes the spectral encoding under the Galerkin-side hypotheses (uniform convergence, compact embedding, Bögli-Siegl-Tretter exactness). §5 states the reduction theorem precisely and contextualises the conditionality. §6 describes the Lean 4 formalization and the named-axiom budget. §7 records the Mathlib integration roadmap — the formalization-side targets whose discharge would replace the on-terminal atomic axioms with `import` swaps. §8 closes with acknowledgments.
 
 ---
 
@@ -166,7 +170,7 @@ The strategic value of the reduction is that it isolates the open content as a s
 
 ## §6 — Lean 4 formalization
 
-The complete chain is formalized in Lean 4 (toolchain `v4.29.1`) against Mathlib pinned at SHA `5e932f97dd25535344f80f9dd8da3aab83df0fe6`. The companion repository is at \[hpbc-lean\] = `github.com/localparty/hilbert-polya-bost-connes-lean` (commit `53e12d8`; v0.1 release). The repository depends, via standard Lake resolution, on the published Bost-Connes Tomita–Takesaki substrate at `github.com/localparty/tt-bost-connes-lean` (v0.2; Zenodo DOI `10.5281/zenodo.20674891`). The Lean source was extracted, with a `HilbertPolyaBostConnes.*` namespace-strip, from `~/integers-mathlib-blueprint/Integers/CCMComplement/` at upstream commit `baa8fb1` (the post-`derive-ccm-cycle-01` DERIVE refactor; see Provenance below).
+The complete chain is formalized in Lean 4 (toolchain `v4.29.1`) against Mathlib pinned at SHA `5e932f97dd25535344f80f9dd8da3aab83df0fe6`. The companion repository is at \[hpbc-lean\] = `github.com/localparty/hilbert-polya-bost-connes-lean` (commit `53e12d8`; v0.1 release). The repository depends, via standard Lake resolution, on the published Bost-Connes Tomita–Takesaki substrate at `github.com/localparty/tt-bost-connes-lean` (v0.2; Zenodo DOI `10.5281/zenodo.20674891`).
 
 ### §6.1. Module structure
 
@@ -248,13 +252,47 @@ We formalize for two reasons. First, the Galerkin scaffold integrates analytic, 
 
 The proof chain will be presented at v0.1 publication time via the **LeanBlueprint** methodology of P. Massot, following the precedent of T. Tao's formalization of the Polynomial Freiman–Ruzsa conjecture, which established the pattern of Lean–Blueprint as engagement layer for contemporary open problems. The Blueprint scaffold is prepared on the `blueprint-v0.1` branch of the companion Lean repository (see \[hpbc-blueprint\]); the live deployment to GitHub Pages occurs at Phase E publication per the master-plan publication sequencing. Upon deployment, the interactive blueprint will make the dependency graph between paper sections, Lean theorems, and named axioms navigable; color-code each node by formal status (computer-verified / paper-only / cited literature); and link each statement to its source Lean theorem and the corresponding paper section via the `\lean{theorem_name}` macro pattern. A reader who wishes to evaluate a specific conditional reduction — e.g., what the inhabitation of `CCMGalerkinSpectralData` actually requires — will be able to click through the dependency graph to inspect both the paper-side statement and its computer-verified Lean counterpart in a single navigation pass. The methodology was developed in the context of Sphere Eversion (Massot–van Doorn) and the Liquid Tensor Experiment (Commelin–Scholze), and has become the de facto standard for high-profile Lean formalizations of contemporary mathematical results.
 
-### §6.6. Provenance
+---
 
-The Lean source was extracted from the research substrate `~/integers-mathlib-blueprint/Integers/CCMComplement/` at upstream commit `baa8fb1` (the post-`derive-ccm-cycle-01` DERIVE refactor), with a `HilbertPolyaBostConnes.*` namespace strip applied during extraction. The publish-repo commit `53e12d8` is the v0.1 release tag. The chain's structural shape is recorded canonically at `~/integers-meta/hilbert-polya-bost-connes-spec/` (the project shape canon), against which the publish repo is mirror-aligned.
+## §7. Mathlib Integration Roadmap
+
+We close with three Mathlib integration targets explicitly identified by the present construction. All three are formalization-side: they concern the Lean substrate and its relationship to Mathlib, not open mathematical questions about the Bost-Connes Hilbert-Pólya scaffold itself. Each is deferred to a dedicated Mathlib upstream PR rather than bundled into the present submission — both to keep the paper scope-contained, and to allow each upstream contribution its own review and attribution at Mathlib's pace. Together the three discharge the two on-terminal CCM-own atomic axioms (Targets 7.1 and 7.2) and a portion of the off-terminal Galerkin substrate (Target 7.3).
+
+### Mathlib Integration Target 7.1 (Bögli–Siegl–Tretter spectral exactness + Anselone–Stummel collectively-compact resolvent uniform bound)
+
+*Develop a Mathlib formalisation of the Bögli–Siegl–Tretter 2017 \[BST17\] spectral-exactness framework for sequences of bounded operators on a complex Hilbert space, together with the underlying Anselone 1971 \[Ans71\] / Stummel 1970 \[Stu70\] collectively-compact-operator-approximation theory, in the form required by Theorem 2.6 of \[BST17\].*
+
+Mathlib at the pinned SHA lacks: (a) any formalisation of *collective compactness* for operator families (the `IsCompactOperator` predicate is for single operators, not families); (b) any spectral-approximation framework for non-self-adjoint operators in the Bögli–Siegl–Tretter sense; and (c) the Banach–Steinhaus uniform-boundedness transfer from strong convergence + collective compactness to resolvent boundedness, which proceeds via the closed-graph theorem applied to the family of approximate resolvents. The atomic axiom `collectively_compact_resolvent_uniform_bound` at `Lemmas/BoegliExactness/Helpers/Anselone.lean:175` packages exactly the uniform-resolvent-bound core of the Anselone–Stummel framework that the Bögli no-pollution direction requires.
+
+The route is a Mathlib PR adding a `CollectivelyCompactFamily` predicate together with the Anselone perturbation lemma and the resolvent-boundedness transfer, with target file `Mathlib/Analysis/Spectrum/BoegliSieglTretter.lean` (suggested in the in-source docstring at `Lemmas/BoegliExactness/Helpers/Anselone.lean`). The estimated scope is 200–500 lines of focused operator theory plus an upstream-review cycle. Completion of this target replaces the on-terminal atomic axiom with an `import` in `Lemmas/BoegliExactness.lean`, leaving the project-local Bögli theorem `boegli_spectral_exactness` unchanged.
+
+### Mathlib Integration Target 7.2 (Rouché zero-counting / argument-principle identity)
+
+*Develop a Mathlib formalisation of Rouché's theorem in the zero-counting form — equivalently, the argument-principle identity*
+
+$$
+(2\pi i)^{-1} \oint_{|z - c| = r} \frac{f'(z)}{f(z)}\,dz \;=\; \#\{\text{zeros of } f \text{ in } B(c, r)\}
+$$
+
+*— at sufficient generality to support the existence-form corollary required by Hurwitz zero-convergence.*
+
+Mathlib at the pinned SHA has the `circleIntegral` API, Cauchy's integral formula, the locally-uniform-limit Weierstrass package, and `Analysis.Analytic.IsolatedZeros`. Missing is the argument-principle identity above and any zero-counting form of Rouché's theorem. The atomic axiom `rouche_zero_existence` at `Lemmas/HurwitzZeros/Helpers/Rouche.lean:102` packages exactly the existence-form corollary — which is strictly weaker than the equality-of-counts form and is precisely what the Hurwitz zero-convergence consumer needs.
+
+The route is a Mathlib PR establishing the argument-principle identity and the full Rouché theorem (equality of counts), of which the existence form is an immediate corollary. The estimated scope is 100–300 lines of focused complex analysis. Completion of this target replaces the on-terminal atomic axiom with an `import` in `Lemmas/HurwitzZeros.lean`, leaving the project-local Hurwitz theorem `hurwitz_zero_convergence` unchanged. Once both Target 7.1 and Target 7.2 land in Mathlib, the canonical-terminal `#print axioms` closure for `rh_of_ccm_galerkin` reduces to the three Lean kernel axioms alone (`propext`, `Classical.choice`, `Quot.sound`), conditional only on the `CCMGalerkinSpectralData` gate's type-level fields.
+
+### Mathlib Integration Target 7.3 (Rellich–Kondrachov compact embedding for Galerkin restrictions)
+
+*Develop a Mathlib formalisation of the Rellich–Kondrachov $H^1 \hookrightarrow L^2$ compact-embedding theorem in the form required by the Galerkin-projection setting of the present construction.*
+
+Mathlib has the abstract Sobolev-embedding framework but at the pinned SHA does not provide the Rellich–Kondrachov compactness statement in the form required by the Galerkin restriction $P_N \circ D_\infty \circ P_N$ together with the uniform $H^1$ resolvent bound (the on-terminal hypothesis of Target 7.1). The off-terminal axiom `dInftyApproximants_h1CompactEmbedding` at `Lemmas/RellichKondrachov/Helpers/CompactEmbedding.lean:124` packages the compact-embedding fact conditional on these hypotheses.
+
+The route is a Mathlib PR adding the Rellich–Kondrachov form to the `Mathlib/Analysis/InnerProductSpace` chain, together with a Galerkin-projection adapter sufficient to feed the project-local `Lemmas/RellichKondrachov.lean`. The estimated scope is 200–400 lines including the Sobolev-space groundwork. This is an off-terminal target — completion does not change the canonical-terminal `#print axioms` closure but does discharge a background-substrate axiom that the broader Galerkin programme relies on.
+
+The TT-upstream Lake-dep'd axioms (six axioms inherited from `tt-bost-connes-lean` v0.2 via the Lake dependency; Bost–Connes 1995 + Connes–Marcolli 2008 + Bratteli–Robinson 1997 substrate) are tracked separately in the companion paper \[Six, tt-bost-connes\] §9 and are not re-stated here.
 
 ---
 
-## §7 — Acknowledgments
+## §8 — Acknowledgments
 
 We gratefully acknowledge:
 
@@ -269,10 +307,6 @@ The broader Hilbert-Pólya programme has been articulated and advanced over the 
 For the formalization methodology, we acknowledge **P. Massot** for the LeanBlueprint tool and the Sphere Eversion precedent, **T. Tao** for the PFR formalization that established the Lean-Blueprint-as-engagement-layer pattern for high-profile contemporary results, and **K. Buzzard** for the foundational community-building work that made mathematician-Lean adoption culturally viable at the scale we rely on here. The Liquid Tensor Experiment of **J. Commelin** and **P. Scholze** is a further methodological precedent we have drawn on.
 
 We owe substantial intellectual debt to the broader community of operator algebraists and analytic number theorists whose work has shaped the questions this paper addresses. Any errors or misjudgments are entirely the author's responsibility.
-
-### AI collaboration
-
-During the preparation of this work, the author used Claude (Opus 4.7, Anthropic). The model assisted in synthesis of the Galerkin scaffold against the operator-algebraic substrate; literature integration across the Bost–Connes, Tomita–Takesaki, spectral-approximation, and Hurwitz / Rouché complex-analysis traditions; development of the Lean 4 formalization companion (`localparty/hilbert-polya-bost-connes-lean`) including module structure, axiom inventory, and the canonical-terminal `#print axioms` discipline; and preparation of the manuscript, the companion `axioms-disclosure.md` document, and the LeanBlueprint chapter scaffold. The author is responsible for mathematical content, decisions about open questions and conditional-reduction framing, the named-axiom budget composition, and final approval of all material.
 
 ---
 
@@ -387,7 +421,3 @@ lake env lean /tmp/print-axioms-hp.lean
 ```
 
 These three commands together provide the independent-verification path for any reader.
-
----
-
-*AI collaboration disclosure: during the preparation of this work, the author used Claude (Opus 4.7, Anthropic). The author reviewed all content and takes full responsibility for the paper.*
