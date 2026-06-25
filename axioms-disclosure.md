@@ -165,4 +165,4 @@ The companion paper's `references.tex` bibliography entries 1:1 match the litera
 
 ---
 
-*Companion to the paper "The Bost-Connes Modular Generator as a Hilbert-Pólya Operator, formalized in Lean 4," G Six, math.OA / math.NT submission, 2026. Authority document for the verified state is the publish repo's `README.md` (commit `53e12d8`). During the preparation of this work, the author used Claude (Opus 4.7, Anthropic).*
+*Companion to the paper "The Bost-Connes Modular Generator as a candidate Hilbert-Pólya Operator, formalized in Lean 4," G Six, math.OA / math.NT submission, 2026. Authority document for the verified state is the publish repo's `README.md` (commit `53e12d8`). During the preparation of this work, the author used Claude (Opus 4.7, Anthropic).*

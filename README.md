@@ -1,6 +1,6 @@
 # hilbert-polya-bost-connes
 
-**The Bost-Connes Modular Generator as a Hilbert-Pólya Operator, formalized in Lean 4**
+**The Bost-Connes Modular Generator as a candidate Hilbert-Pólya Operator, formalized in Lean 4**
 
 *G Six. math.OA / math.NT submission, 2026.*
 
@@ -101,7 +101,7 @@ No axiom in the budget invokes the Riemann Hypothesis in its published proof.
 ```bibtex
 @misc{Six2026hpbc,
   author = {Six, G.},
-  title  = {The {B}ost--{C}onnes {M}odular {G}enerator as a
+  title  = {The {B}ost--{C}onnes {M}odular {G}enerator as a candidate
             {H}ilbert--{P}{\'o}lya {O}perator, formalized in {L}ean~4},
   year   = {2026},
   note   = {math.OA / math.NT submission. Companion Lean 4 formalization at

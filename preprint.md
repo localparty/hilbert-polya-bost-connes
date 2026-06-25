@@ -1,4 +1,4 @@
-# The Bost-Connes Modular Generator as a Hilbert-Pólya Operator, formalized in Lean 4²
+# The Bost-Connes Modular Generator as a candidate Hilbert-Pólya Operator, formalized in Lean 4²
 
 **G Six**¹
 
