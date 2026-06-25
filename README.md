@@ -4,7 +4,7 @@
 
 *G Six. math.OA / math.NT submission, 2026.*
 
-<!-- DOI badges are placeholders until Phase E Zenodo mint. -->
+<!-- DOI badges are placeholders until Zenodo mint at publication. -->
 <!-- [![Paper DOI](https://zenodo.org/badge/DOI/PENDING_PAPER_DOI.svg)](https://doi.org/PENDING_PAPER_DOI) -->
 <!-- [![Lean companion DOI](https://img.shields.io/badge/Lean%20companion-PENDING__LEAN__DOI-blue)](https://doi.org/PENDING_LEAN_DOI) -->
 [![TT-substrate DOI](https://img.shields.io/badge/TT--substrate-10.5281%2Fzenodo.20674891-blue)](https://doi.org/10.5281/zenodo.20674891)
@@ -31,12 +31,12 @@ HilbertPolyaBostConnes.rh_of_ccm_galerkin
 |---|---|
 | `preprint.md` | The paper (markdown source; §§1–7 + References + Appendix A). |
 | `axioms-disclosure.md` | Per-axiom disclosure document. 8 CCM-substrate-own atomic axioms (2 on-terminal + 6 off-terminal) plus 6 TT-upstream-inherited axioms via Lake dependency. Each with literature citation and non-RH-equivalence note. |
-| `references.tex` | BibTeX-formatted bibliography; 1:1 aligned with the named-axiom citations of `axioms-disclosure.md` (master plan §7 Gate 5). |
+| `references.tex` | BibTeX-formatted bibliography; 1:1 aligned with the named-axiom citations of `axioms-disclosure.md`. |
 | `LICENSE` | CC-BY-4.0. |
 
 ## Companion Lean 4 formalization
 
-The Lean 4 companion is at [`localparty/hilbert-polya-bost-connes-lean`](https://github.com/localparty/hilbert-polya-bost-connes-lean) at commit `53e12d8` (v0.1 release). The repository implements the structural chain extracted from `integers-mathlib-blueprint/Integers/CCMComplement/` at upstream commit `baa8fb1`, with `HilbertPolyaBostConnes.*` namespace strip applied.
+The Lean 4 companion is at [`localparty/hilbert-polya-bost-connes-lean`](https://github.com/localparty/hilbert-polya-bost-connes-lean) at commit `53e12d8` (v0.1 release).
 
 **Build environment** (per the Lean companion's `README.md`):
 
@@ -106,7 +106,7 @@ No axiom in the budget invokes the Riemann Hypothesis in its published proof.
   year   = {2026},
   note   = {math.OA / math.NT submission. Companion Lean 4 formalization at
             \url{https://github.com/localparty/hilbert-polya-bost-connes-lean}
-            (commit 53e12d8, v0.1); Zenodo DOIs pending Phase E mint.}
+            (commit 53e12d8, v0.1); Zenodo DOIs pending publication.}
 }
 ```
 
@@ -114,8 +114,6 @@ No axiom in the budget invokes the Riemann Hypothesis in its published proof.
 
 CC-BY-4.0. See `LICENSE`.
 
-## Provenance and AI collaboration disclosure
-
-The mathematical substrate of this paper is extracted from the CCM-complement chain of the broader `integers-mathlib-blueprint` Lean research substrate at upstream commit `baa8fb1` (post-`derive-ccm-cycle-01` DERIVE refactor); the publish-repo extraction and namespace strip are at commit `53e12d8` (v0.1 release). The shape canon — the canonical structural shape of the Lean tree — is at `~/integers-meta/hilbert-polya-bost-connes-spec/` (not part of this repository).
+## AI collaboration disclosure
 
 During the preparation of this work, the author used Claude (Opus 4.7, Anthropic). The author reviewed all content and takes full responsibility for the paper.

@@ -9,15 +9,6 @@ Companion Lean repository: `localparty/hilbert-polya-bost-connes-lean` (commit `
 
 **Inventory at a glance.** 8 CCM-substrate-own atomic axioms + 6 TT-upstream-inherited axioms = 14 total in the publishable extraction's `#print axioms` universe. Of the 8 CCM-own, exactly 2 appear in the canonical terminal's `#print axioms` closure; the other 6 CCM-own and all 6 TT-upstream axioms are off-terminal background substrate honestly disclosed below but absent from the canonical-terminal certificate.
 
-**Authority documents.**
-
-- Master plan §6 named-axiom budget + §7 verification gates:
-  `~/integers-meta/hilbert-polya-bost-connes/hilbert-polya-bost-connes-master-plan.md`
-- Doctrine §3.3 `#print axioms` publication discipline + §4.4 CERTIFIED ≠ DISCHARGED:
-  `~/integers-meta/mathlib-fanout/concrete-types-strategy.md`
-- Spec dir's authoritative inventory (1:1 mirror of the publish repo):
-  `~/integers-meta/hilbert-polya-bost-connes-spec/axioms-disclosure.md`
-
 ---
 
 ## 1. The canonical terminal and the on-terminal `#print axioms` closure
@@ -151,7 +142,7 @@ All 6 TT-upstream axioms are **off-terminal** with respect to the present chain'
 Per doctrine §2 Failure Mode #7 boundary (no open-content laundering), the named-axiom budget contains:
 
 - **No axiom citing the present paper.** No axiom cites a result of this paper, the present author's prior preprints in this programme line, or the project repository as the source of its statement. Each axiom cites independent peer-reviewed literature where the result is established.
-- **No axiom citing a project-internal cell, draft, or unpublished preprint.** No axiom cites an internal sketch, the `~/integers-clay-millennium/riemann/results/cells/` ledger, or any non-public document.
+- **No axiom citing a project-internal cell, draft, or unpublished preprint.** No axiom cites an internal sketch or any non-public document.
 - **No placeholder axiom.** No axiom is a `True`-typed placeholder, an empty-structure stand-in, or a contractible-singleton carrier masquerading as content. The carrier-type audit per doctrine §2.2 was performed at extraction; all 8 CCM-own axioms have load-bearing carriers.
 - **No RH-equivalent axiom in disguise.** No axiom in the budget invokes the Riemann Hypothesis in its published proof. Each axiom is a classical operator-algebraic or complex-analytic substrate fact; the literature citation in §2 above (and the in-source docstring) records the source.
 - **No off-budget axiom.** A `grep -hE "^axiom " HilbertPolyaBostConnes/**/*.lean | wc -l` returns 8; no axiom is hidden, re-named to obscure provenance, or declared outside the inventoried files.
@@ -168,10 +159,10 @@ This is an honest reflection of the present state of the formalization and is no
 
 ---
 
-## 6. Disclosure-alignment crosscheck (master plan §7 Gate 5)
+## 6. Disclosure-alignment crosscheck
 
-Per master plan §7 Gate 5: the companion paper's `references.tex` bibliography entries 1:1 match the literature citations of §2 above. Per Gate 6 open-content audit: no axiom in the inventory cites the project's own paper, an internal cell, an unpublished preprint, or a placeholder (see §4 above). All 8 CCM-own + 6 TT-upstream axioms are independently citable in peer-reviewed published sources.
+The companion paper's `references.tex` bibliography entries 1:1 match the literature citations of §2 above (publication-discipline gate). The open-content audit confirms that no axiom in the inventory cites the project's own paper, an internal cell, an unpublished preprint, or a placeholder (see §4 above); all 8 CCM-own + 6 TT-upstream axioms are independently citable in peer-reviewed published sources.
 
 ---
 
-*Companion to the paper "A Hilbert-Pólya operator scaffold from the Bost-Connes type III_1 factor, formalized in Lean 4," G Six, math.OA / math.NT submission, 2026. Authority document for the verified state is the publish repo's `README.md` (commit `53e12d8`) together with the spec dir's `axioms-disclosure.md`. During the preparation of this work, the author used Claude (Opus 4.7, Anthropic).*
+*Companion to the paper "The Bost-Connes Modular Generator as a Hilbert-Pólya Operator, formalized in Lean 4," G Six, math.OA / math.NT submission, 2026. Authority document for the verified state is the publish repo's `README.md` (commit `53e12d8`). During the preparation of this work, the author used Claude (Opus 4.7, Anthropic).*

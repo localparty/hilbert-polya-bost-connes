@@ -8,7 +8,7 @@
 
 ¹ *During the preparation of this work, the author used Claude Opus 4.7.*
 
-² *The Lean 4 formalization at [https://github.com/localparty/hilbert-polya-bost-connes-lean](https://github.com/localparty/hilbert-polya-bost-connes-lean) (Zenodo DOI assigned at Phase E publication time per the master-plan publication sequencing) Lake-depends on the companion Bost-Connes Tomita-Takesaki substrate at [https://github.com/localparty/tt-bost-connes-lean](https://github.com/localparty/tt-bost-connes-lean) v0.2 (independently archived at DOI [10.5281/zenodo.20674891](https://doi.org/10.5281/zenodo.20674891)); the formalization permits independent machine checking of the structural scaffold of every theorem in §§3–6. The substrate inventory — eight CCM-substrate-own atomic axioms (§6.2; of which two, `rouche_zero_existence` and `collectively_compact_resolvent_uniform_bound`, appear in the canonical terminal's `#print axioms` closure; six are off-terminal background substrate) and six TT-upstream axioms inherited via the Lake dependency — carries the load-bearing analytic content. Each axiom carries a literature citation whose published proof does not invoke the Riemann Hypothesis (§6.2, and the companion `axioms-disclosure.md`).*
+² *The Lean 4 formalization at [https://github.com/localparty/hilbert-polya-bost-connes-lean](https://github.com/localparty/hilbert-polya-bost-connes-lean) (Zenodo DOI assigned at publication time) Lake-depends on the companion Bost-Connes Tomita-Takesaki substrate at [https://github.com/localparty/tt-bost-connes-lean](https://github.com/localparty/tt-bost-connes-lean) v0.2 (independently archived at DOI [10.5281/zenodo.20674891](https://doi.org/10.5281/zenodo.20674891)); the formalization permits independent machine checking of the structural scaffold of every theorem in §§3–6. The substrate inventory — eight CCM-substrate-own atomic axioms (§6.2; of which two, `rouche_zero_existence` and `collectively_compact_resolvent_uniform_bound`, appear in the canonical terminal's `#print axioms` closure; six are off-terminal background substrate) and six TT-upstream axioms inherited via the Lake dependency — carries the load-bearing analytic content. Each axiom carries a literature citation whose published proof does not invoke the Riemann Hypothesis (§6.2, and the companion `axioms-disclosure.md`).*
 
 ---
 
@@ -122,7 +122,7 @@ These four substrate facts together provide the operator-theoretic environment i
 
 ## §3 — The compact resolvent and $D_\infty$ construction
 
-**Construction summary.** This section presents the structural form of the $D_\infty$ construction; the formalized proofs and the per-step Lean theorem statements live in the companion LeanBlueprint (\[hpbc-blueprint\]) in its *Construction* chapter (chapter label `ch:construction`). In particular, the Lean theorem at chapter label `thm:dinfty-clm-selfAdjoint` records the structural form of self-adjointness as a type-level field of the Galerkin spectral-data gate (§5), and the theorem at chapter label `thm:ccm-complement-construction` records the existential bundle of Galerkin spectral data + self-adjointness. The blueprint dependency graph (\[hpbc-blueprint\], live at Phase E deployment time per the master-plan publication sequencing) will make the dependency structure between each step here and its Lean counterpart navigable in a single pass; a reader who wishes to inspect a specific step's formalized content should click through to the corresponding blueprint node.
+**Construction summary.** This section presents the structural form of the $D_\infty$ construction; the formalized proofs and the per-step Lean theorem statements live in the companion LeanBlueprint (\[hpbc-blueprint\]) in its *Construction* chapter (chapter label `ch:construction`). In particular, the Lean theorem at chapter label `thm:dinfty-clm-selfAdjoint` records the structural form of self-adjointness as a type-level field of the Galerkin spectral-data gate (§5), and the theorem at chapter label `thm:ccm-complement-construction` records the existential bundle of Galerkin spectral data + self-adjointness. The blueprint dependency graph (\[hpbc-blueprint\], live at publication time) will make the dependency structure between each step here and its Lean counterpart navigable in a single pass; a reader who wishes to inspect a specific step's formalized content should click through to the corresponding blueprint node.
 
 We construct the operator $D_\infty$ as the strong limit of a sequence $D_N$ of bounded self-adjoint operators defined on the Galerkin projections $P_N H_1$. The construction proceeds in three steps:
 
@@ -140,7 +140,7 @@ The uniform resolvent bound at step (2) is *not* a closed result. The Lean chain
 
 ## §4 — The spectral encoding
 
-**Spectral encoding summary.** This section presents the structural form of the spectrum identification; the formalized proofs and the per-axiom-and-theorem Lean statements live in the companion LeanBlueprint (\[hpbc-blueprint\]) in its *Spectral encoding* chapter (chapter label `ch:spectral-encoding`). The Bögli no-spectral-pollution direction is recorded at chapter label `thm:boegli` (DERIVED theorem) reducing to the on-terminal atomic axiom at chapter label `ax:collectively-compact-uniform-bound`; the Hurwitz zero-convergence direction is recorded at chapter label `thm:hurwitz` (DERIVED theorem) reducing to the on-terminal atomic axiom at chapter label `ax:rouche-zero-existence`; the combined spectrum-zeros identity is recorded at chapter label `thm:spectral-encoding` (DERIVED from the gate). The blueprint dependency graph (\[hpbc-blueprint\], live at Phase E deployment time per the master-plan publication sequencing) exposes the DERIVED-vs-atomic-axiom structure and the literature-citation discipline at each node.
+**Spectral encoding summary.** This section presents the structural form of the spectrum identification; the formalized proofs and the per-axiom-and-theorem Lean statements live in the companion LeanBlueprint (\[hpbc-blueprint\]) in its *Spectral encoding* chapter (chapter label `ch:spectral-encoding`). The Bögli no-spectral-pollution direction is recorded at chapter label `thm:boegli` (DERIVED theorem) reducing to the on-terminal atomic axiom at chapter label `ax:collectively-compact-uniform-bound`; the Hurwitz zero-convergence direction is recorded at chapter label `thm:hurwitz` (DERIVED theorem) reducing to the on-terminal atomic axiom at chapter label `ax:rouche-zero-existence`; the combined spectrum-zeros identity is recorded at chapter label `thm:spectral-encoding` (DERIVED from the gate). The blueprint dependency graph (\[hpbc-blueprint\], live at publication time) exposes the DERIVED-vs-atomic-axiom structure and the literature-citation discipline at each node.
 
 The spectrum of $D_\infty$ is computed via two analytic ingredients:
 
@@ -211,7 +211,7 @@ The strategic value of the reduction is that it isolates the open content as a s
 
 ## §6 — Lean 4 formalization
 
-The complete chain is formalized in Lean 4 (toolchain `v4.29.1`) against Mathlib pinned at SHA `5e932f97dd25535344f80f9dd8da3aab83df0fe6`. The companion repository is at \[hpbc-lean\] = `github.com/localparty/hilbert-polya-bost-connes-lean` (commit `53e12d8`; v0.1 release). The repository depends, via standard Lake resolution, on the published Bost-Connes Tomita–Takesaki substrate at `github.com/localparty/tt-bost-connes-lean` (v0.2; Zenodo DOI `10.5281/zenodo.20674891`). The Lean source was extracted, with a `HilbertPolyaBostConnes.*` namespace-strip, from `~/integers-mathlib-blueprint/Integers/CCMComplement/` at upstream commit `baa8fb1` (the post-`derive-ccm-cycle-01` DERIVE refactor; see Provenance below).
+The complete chain is formalized in Lean 4 (toolchain `v4.29.1`) against Mathlib pinned at SHA `5e932f97dd25535344f80f9dd8da3aab83df0fe6`. The companion repository is at \[hpbc-lean\] = `github.com/localparty/hilbert-polya-bost-connes-lean` (commit `53e12d8`; v0.1 release). The repository depends, via standard Lake resolution, on the published Bost-Connes Tomita–Takesaki substrate at `github.com/localparty/tt-bost-connes-lean` (v0.2; Zenodo DOI `10.5281/zenodo.20674891`).
 
 ### §6.1. Module structure
 
@@ -291,11 +291,7 @@ We formalize for two reasons. First, the BC-modular-generator construction integ
 
 ### §6.5. Interactive proof chain presentation (LeanBlueprint)
 
-The proof chain will be presented at v0.1 publication time via the **LeanBlueprint** methodology of P. Massot, following the precedent of T. Tao's formalization of the Polynomial Freiman–Ruzsa conjecture, which established the pattern of Lean–Blueprint as engagement layer for contemporary open problems. The Blueprint scaffold is prepared on the `blueprint-v0.1` branch of the companion Lean repository (see \[hpbc-blueprint\]); the live deployment to GitHub Pages occurs at Phase E publication per the master-plan publication sequencing. Upon deployment, the interactive blueprint will make the dependency graph between paper sections, Lean theorems, and named axioms navigable; color-code each node by formal status (computer-verified / paper-only / cited literature); and link each statement to its source Lean theorem and the corresponding paper section via the `\lean{theorem_name}` macro pattern. A reader who wishes to evaluate a specific conditional reduction — e.g., what the inhabitation of `CCMGalerkinSpectralData` actually requires — will be able to click through the dependency graph to inspect both the paper-side statement and its computer-verified Lean counterpart in a single navigation pass. The methodology was developed in the context of Sphere Eversion (Massot–van Doorn) and the Liquid Tensor Experiment (Commelin–Scholze), and has become the de facto standard for high-profile Lean formalizations of contemporary mathematical results.
-
-### §6.6. Provenance
-
-The Lean source was extracted from the research substrate `~/integers-mathlib-blueprint/Integers/CCMComplement/` at upstream commit `baa8fb1` (the post-`derive-ccm-cycle-01` DERIVE refactor), with a `HilbertPolyaBostConnes.*` namespace strip applied during extraction. The publish-repo commit `53e12d8` is the v0.1 release tag. The chain's structural shape is recorded canonically at `~/integers-meta/hilbert-polya-bost-connes-spec/` (the project shape canon), against which the publish repo is mirror-aligned.
+The proof chain will be presented at v0.1 publication time via the **LeanBlueprint** methodology of P. Massot, following the precedent of T. Tao's formalization of the Polynomial Freiman–Ruzsa conjecture, which established the pattern of Lean–Blueprint as engagement layer for contemporary open problems. The Blueprint scaffold is prepared on the `blueprint-v0.1` branch of the companion Lean repository (see \[hpbc-blueprint\]); the live deployment to GitHub Pages occurs at v0.1 publication. Upon deployment, the interactive blueprint will make the dependency graph between paper sections, Lean theorems, and named axioms navigable; color-code each node by formal status (computer-verified / paper-only / cited literature); and link each statement to its source Lean theorem and the corresponding paper section via the `\lean{theorem_name}` macro pattern. A reader who wishes to evaluate a specific conditional reduction — e.g., what the inhabitation of `CCMGalerkinSpectralData` actually requires — will be able to click through the dependency graph to inspect both the paper-side statement and its computer-verified Lean counterpart in a single navigation pass. The methodology was developed in the context of Sphere Eversion (Massot–van Doorn) and the Liquid Tensor Experiment (Commelin–Scholze), and has become the de facto standard for high-profile Lean formalizations of contemporary mathematical results.
 
 ---
 
@@ -319,7 +315,7 @@ We owe substantial intellectual debt to the broader community of operator algebr
 
 ## References
 
-The full BibTeX-formatted bibliography is in the companion file `references.tex`, aligned 1:1 with the named-axiom citations of §6 and the companion `axioms-disclosure.md` document (per the publication discipline of master plan §7 Gate 5). Indicative citations:
+The full BibTeX-formatted bibliography is in the companion file `references.tex`, aligned 1:1 with the named-axiom citations of §6 and the companion `axioms-disclosure.md` document. Indicative citations:
 
 **Anselone, P. M.** *Collectively Compact Operator Approximation Theory and Applications to Integral Equations.* Prentice-Hall, Englewood Cliffs, NJ, 1971. <!-- \bibitem{Ans71} -->
 
@@ -375,9 +371,9 @@ The full BibTeX-formatted bibliography is in the companion file `references.tex`
 
 **Six, G.** *tt-bost-connes-lean.* GitHub repository `localparty/tt-bost-connes-lean`, v0.2, 2026. Zenodo DOI: [10.5281/zenodo.20674891](https://doi.org/10.5281/zenodo.20674891). <!-- \bibitem{TTlean} -->
 
-**Six, G.** *hilbert-polya-bost-connes-lean.* GitHub repository `localparty/hilbert-polya-bost-connes-lean`, v0.1 release (commit `53e12d8`), 2026. (Companion Lean formalization; Zenodo DOI pending Phase E mint.) <!-- \bibitem{hpbc-lean} -->
+**Six, G.** *hilbert-polya-bost-connes-lean.* GitHub repository `localparty/hilbert-polya-bost-connes-lean`, v0.1 release (commit `53e12d8`), 2026. (Companion Lean formalization; Zenodo DOI pending publication.) <!-- \bibitem{hpbc-lean} -->
 
-**Six, G.** *Hilbert-Pólya Bost-Connes formalization Blueprint.* GitHub Pages, [https://localparty.github.io/hilbert-polya-bost-connes-lean/blueprint/dep_graph_document.html](https://localparty.github.io/hilbert-polya-bost-connes-lean/blueprint/dep_graph_document.html), 2026. Source on the `blueprint-v0.1` branch of `localparty/hilbert-polya-bost-connes-lean` (commit `02e105e`); live deployment occurs at Phase E publication per the master-plan publication sequencing. <!-- \bibitem{hpbc-blueprint} -->
+**Six, G.** *Hilbert-Pólya Bost-Connes formalization Blueprint.* GitHub Pages, [https://localparty.github.io/hilbert-polya-bost-connes-lean/blueprint/dep_graph_document.html](https://localparty.github.io/hilbert-polya-bost-connes-lean/blueprint/dep_graph_document.html), 2026. Source on the `blueprint-v0.1` branch of `localparty/hilbert-polya-bost-connes-lean` (commit `02e105e`); live deployment at v0.1 publication. <!-- \bibitem{hpbc-blueprint} -->
 
 **Stummel, F.** *Diskrete Konvergenz linearer Operatoren I.* Math. Ann. **190** (1970), 45–92. DOI: [10.1007/BF01349967](https://doi.org/10.1007/BF01349967). <!-- \bibitem{Stu70} -->
 
@@ -428,7 +424,3 @@ lake env lean /tmp/print-axioms-hp.lean
 ```
 
 These three commands together provide the independent-verification path for any reader.
-
----
-
-*AI collaboration disclosure: during the preparation of this work, the author used Claude (Opus 4.7, Anthropic). The author reviewed all content and takes full responsibility for the paper.*
