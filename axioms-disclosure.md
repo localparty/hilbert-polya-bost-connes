@@ -5,7 +5,7 @@ Per-axiom disclosure for the Lean 4 formalization companion of the paper:
 > **The Bost-Connes Modular Generator as a candidate Hilbert-Pólya Operator, formalized in Lean 4**
 > *G Six* - San Fracisco, 2026.
 
-Companion Lean repository: `localparty/hilbert-polya-bost-connes-lean` (commit `53e12d8`; v0.1 release). Mathlib pinned at SHA `5e932f97dd25535344f80f9dd8da3aab83df0fe6` (Lean 4 toolchain `v4.29.1`). Lake-dep on `localparty/tt-bost-connes-lean` v0.2 (Zenodo DOI `10.5281/zenodo.20674891`; commit `d4bb8949`).
+Companion Lean repository: [`localparty/hilbert-polya-bost-connes-lean`](https://github.com/localparty/hilbert-polya-bost-connes-lean) (commit `53e12d8`; v0.1 release). Mathlib pinned at SHA `5e932f97dd25535344f80f9dd8da3aab83df0fe6` (Lean 4 toolchain `v4.29.1`). Lake-dep on [`localparty/tt-bost-connes-lean`](https://github.com/localparty/tt-bost-connes-lean) v0.2 (Zenodo DOI [`10.5281/zenodo.20674891`](https://doi.org/10.5281/zenodo.20674891); commit `d4bb8949`).
 
 **Inventory at a glance.** 8 CCM-substrate-own atomic axioms + 6 TT-upstream-inherited axioms = 14 total in the publishable extraction's `#print axioms` universe. Of the 8 CCM-own, exactly 2 appear in the canonical terminal's `#print axioms` closure; the other 6 CCM-own and all 6 TT-upstream axioms are off-terminal background substrate honestly disclosed below but absent from the canonical-terminal certificate.
 
@@ -88,7 +88,7 @@ The 8 atomic CCM-own axioms partition into 4 Infrastructure axioms (BC operator-
 - **Honest caveat**: this is the **existence-form** corollary of the full Rouché theorem (equality of zero-counts with multiplicity); we ship only the existence form because the Hurwitz zero-convergence consumer requires only this much. The published proof in Ahlfors does not invoke RH.
 - **Non-RH-equivalence**: classical 19th-century complex analysis; pre-dates Riemann's hypothesis by 3 years and is independent of it.
 - **On/off-terminal**: **on-terminal** (in the canonical terminal's `#print axioms` closure). Consumed by the project-local theorem `hurwitz_zero_convergence` in `Lemmas/HurwitzZeros.lean`.
-- **Mathlib-gap rationale**: Mathlib at the pinned SHA lacks Rouché's theorem in any zero-counting form. The `circleIntegral` API, Cauchy's integral formula, and the locally-uniform-limit Weierstrass package are all present, but the argument-principle identity $(2\pi i)^{-1} \oint_{|z-c|=r} f'/f = \#\{\text{zeros of } f \text{ in } B(c, r)\}$ is absent. Once that surface is filled in upstream, the axiom can be replaced by an `import` swap.
+- **Mathlib-gap rationale**: Mathlib at the pinned SHA lacks Rouché's theorem in any zero-counting form. The `circleIntegral` API, Cauchy's integral formula, and the locally-uniform-limit Weierstrass package are all present, but the argument-principle identity $(2\pi i)^{-1} \oint_{|z-c|=r} f'/f = \\#\\{\text{zeros of } f \text{ in } B(c, r)\\}$ is absent. Once that surface is filled in upstream, the axiom can be replaced by an `import` swap.
 
 #### Axiom #6: `collectively_compact_resolvent_uniform_bound` — **on-terminal**
 
@@ -120,7 +120,7 @@ The 8 atomic CCM-own axioms partition into 4 Infrastructure axioms (BC operator-
 
 ## 3. TT-upstream-inherited axioms (6 total)
 
-These axioms live in `Integers/TomitaTakesaki/L1BostConnesAlgebra.lean` upstream of CCM (in the `tt-bost-connes-lean` v0.2 Lake-dep'd companion); the CCM substrate imports through `TTBridge` and thereby pulls them into the `#print axioms` closure of any consumer that traverses the TT layer. Discharge is owned by the companion paper [Six, tt-bost-connes] §8.2, not by the present project.
+These axioms live in `TomitaTakesaki/L1BostConnesAlgebra.lean` upstream of CCM (in the [`tt-bost-connes-lean`](https://github.com/localparty/tt-bost-connes-lean) v0.2 Lake-dep'd companion); the CCM substrate imports through `TTBridge` and thereby pulls them into the `#print axioms` closure of any consumer that traverses the TT layer. Discharge is owned by the companion paper [Six, tt-bost-connes] §8.2, not by the present project.
 
 For each, we record the substrate citation; full bibliographic detail and per-axiom docstrings are in the companion paper.
 

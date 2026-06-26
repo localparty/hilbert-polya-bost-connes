@@ -72,7 +72,7 @@ lake env lean /tmp/print-axioms-hp.lean
 
 ## Named-axiom budget at a glance
 
-8 CCM-substrate-own atomic axioms (4 Infrastructure BC operator-algebraic substrate + 4 Lemmas/Helpers classical literature ports) + 6 TT-upstream axioms (inherited via Lake-dep on `tt-bost-connes-lean` v0.2 = 14 total. Full inventory with citations, on/off-terminal partition, and non-RH-equivalence notes in `axioms-disclosure.md`.
+8 CCM-substrate-own atomic axioms (4 Infrastructure BC operator-algebraic substrate + 4 Lemmas/Helpers classical literature ports) + 6 TT-upstream axioms (inherited via Lake-dep on [`tt-bost-connes-lean`](https://github.com/localparty/tt-bost-connes-lean) v0.2 = 14 total. Full inventory with citations, on/off-terminal partition, and non-RH-equivalence notes in `axioms-disclosure.md`.
 
 **On-terminal CCM-own axioms** (in the canonical terminal's `#print axioms` closure):
 
@@ -92,7 +92,7 @@ lake env lean /tmp/print-axioms-hp.lean
 | `dInftyApproximants_finiteRank` | BC modular Galerkin setup (Connes–Marcolli 2008 Ch. III) |
 | `dInftyApproximants_h1CompactEmbedding` | Rellich 1930 + Kondrachov 1945 |
 
-**TT-upstream-inherited axioms** (via Lake-dep on `tt-bost-connes-lean` v0.2; discharge owned by the companion paper [Six, tt-bost-connes] §8.2): `bc_system_exists`, `kms1_unique`, `kms1_faithful`, `itpfi_factorization`, `time_evolution_is_automorphism`, `kms_condition`.
+**TT-upstream-inherited axioms** (via Lake-dep on [`tt-bost-connes-lean`](https://github.com/localparty/tt-bost-connes-lean) v0.2; discharge owned by the companion paper [Six, tt-bost-connes] §8.2): `bc_system_exists`, `kms1_unique`, `kms1_faithful`, `itpfi_factorization`, `time_evolution_is_automorphism`, `kms_condition`.
 
 No axiom in the budget invokes the Riemann Hypothesis in its published proof.
 
