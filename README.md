@@ -5,7 +5,7 @@
 *G Six. 2026.*
 
 <!-- DOI badges are placeholders until Zenodo mint at publication. -->
-<!-- [![Paper DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20916427.svg)](https://doi.org/10.5281/zenodo.20916427) -->
+<!-- [![Paper DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20920816.svg)](https://doi.org/10.5281/zenodo.20920816) -->
 <!-- [![Lean companion DOI](https://img.shields.io/badge/Lean%20companion-10.5281%2Fzenodo.20920735-blue)](https://doi.org/10.5281/zenodo.20920735) -->
 [![TT-substrate DOI](https://img.shields.io/badge/TT--substrate-10.5281%2Fzenodo.20674891-blue)](https://doi.org/10.5281/zenodo.20674891)
 [![License: CC-BY-4.0](https://img.shields.io/badge/License-CC--BY--4.0-lightgrey.svg)](LICENSE)
