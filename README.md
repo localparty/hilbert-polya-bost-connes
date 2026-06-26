@@ -10,7 +10,7 @@
 [![TT-substrate DOI](https://img.shields.io/badge/TT--substrate-10.5281%2Fzenodo.20674891-blue)](https://doi.org/10.5281/zenodo.20674891)
 [![License: CC-BY-4.0](https://img.shields.io/badge/License-CC--BY--4.0-lightgrey.svg)](LICENSE)
 
-This repository hosts the paper and references to its Lean 4 companion formalization. The paper studies the modular generator $D_\infty = -i \cdot \partial_t \log \Delta$ of the Bost-Connes type $\mathrm{III}_1$ factor at the critical KMS state ($\beta = 1$), acting on the GNS Hilbert space, as a candidate Hilbert-Pólya operator, together with a Galerkin approximation chain whose spectra approximate that of $D_\infty$ in the Bögli–Siegl–Tretter sense; the construction is formalized in Lean 4 against a pinned Mathlib revision.
+This repository hosts the paper and references to its Lean 4 companion formalization. The paper studies the modular generator $D\_\infty = -i \cdot \partial\_t \log \Delta$ of the Bost-Connes type $\mathrm{III}\_1$ factor at the critical KMS state ($\beta = 1$), acting on the GNS Hilbert space, as a candidate Hilbert-Pólya operator, together with a Galerkin approximation chain whose spectra approximate that of $D\_\infty$ in the Bögli–Siegl–Tretter sense; the construction is formalized in Lean 4 against a pinned Mathlib revision.
 
 ## Honest framing
 

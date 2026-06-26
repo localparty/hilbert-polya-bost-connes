@@ -49,8 +49,8 @@ The 8 atomic CCM-own axioms partition into 4 Infrastructure axioms (BC operator-
 #### Axiom #1: `bc_factor_isTypeIII1`
 
 - **Lean location**: `HilbertPolyaBostConnes/Infrastructure.lean:104`
-- **Citation**: Araki, H.; Woods, E. J., *A classification of factors*, Publ. Res. Inst. Math. Sci., Kyoto Univ., Ser. A **4** (1968), 51–130, DOI [10.2977/prims/1195195263](https://doi.org/10.2977/prims/1195195263) (ITPFI type $\mathrm{III}_1$ classification) — together with Haagerup, U., *Connes' bicentralizer problem and uniqueness of the injective factor of type $\mathrm{III}_1$*, Acta Math. **158** (1987), 95–148, DOI [10.1007/BF02392257](https://doi.org/10.1007/BF02392257) (uniqueness of injective type $\mathrm{III}_1$).
-- **Statement**: the Bost–Connes factor $M_1 = \pi_{\omega_1}(B_K)''$ is the unique injective type $\mathrm{III}_1$ factor in Connes' classification.
+- **Citation**: Araki, H.; Woods, E. J., *A classification of factors*, Publ. Res. Inst. Math. Sci., Kyoto Univ., Ser. A **4** (1968), 51–130, DOI [10.2977/prims/1195195263](https://doi.org/10.2977/prims/1195195263) (ITPFI type $\mathrm{III}\_1$ classification) — together with Haagerup, U., *Connes' bicentralizer problem and uniqueness of the injective factor of type $\mathrm{III}\_1$*, Acta Math. **158** (1987), 95–148, DOI [10.1007/BF02392257](https://doi.org/10.1007/BF02392257) (uniqueness of injective type $\mathrm{III}\_1$).
+- **Statement**: the Bost–Connes factor $M\_1 = \pi\_{\omega\_1}(B\_K)''$ is the unique injective type $\mathrm{III}\_1$ factor in Connes' classification.
 - **Non-RH-equivalence**: a classical theorem about the BC factor; the published proofs do not invoke the Riemann Hypothesis.
 - **On/off-terminal**: **off-terminal** (background substrate).
 
@@ -58,16 +58,16 @@ The 8 atomic CCM-own axioms partition into 4 Infrastructure axioms (BC operator-
 
 - **Lean location**: `HilbertPolyaBostConnes/Infrastructure.lean:120`
 - **Citation**: Connes, A., *Une classification des facteurs de type III*, Ann. Sci. École Norm. Sup. (4) **6** (1973), 133–252, DOI [10.24033/asens.1247](https://doi.org/10.24033/asens.1247) (modular flow ergodicity on the centre).
-- **Statement**: the modular flow $\sigma_t = \mathrm{Ad}(\Delta^{it})$ of $\omega_1$ on $M_1$ is ergodic.
+- **Statement**: the modular flow $\sigma\_t = \mathrm{Ad}(\Delta^{it})$ of $\omega\_1$ on $M\_1$ is ergodic.
 - **Non-RH-equivalence**: Connes' modular flow classification; the published proof does not invoke RH.
 - **On/off-terminal**: **off-terminal**.
 
 #### Axiom #3: `bc_connesSpectrum_real`
 
 - **Lean location**: `HilbertPolyaBostConnes/Infrastructure.lean:128`
-- **Citation**: Connes, A., *Une classification des facteurs de type III*, Ann. Sci. École Norm. Sup. (4) **6** (1973), 133–252 (Sd-invariant of the type $\mathrm{III}_1$ BC factor equals $\mathbb{R}$).
-- **Statement**: the Connes spectrum $\mathrm{Sd}(M_1) = \mathbb{R}$.
-- **Non-RH-equivalence**: Sd-invariant of the type $\mathrm{III}_1$ factor; classical.
+- **Citation**: Connes, A., *Une classification des facteurs de type III*, Ann. Sci. École Norm. Sup. (4) **6** (1973), 133–252 (Sd-invariant of the type $\mathrm{III}\_1$ BC factor equals $\mathbb{R}$).
+- **Statement**: the Connes spectrum $\mathrm{Sd}(M\_1) = \mathbb{R}$.
+- **Non-RH-equivalence**: Sd-invariant of the type $\mathrm{III}\_1$ factor; classical.
 - **On/off-terminal**: **off-terminal**.
 
 #### Axiom #4: `dInftyApproximants_strongConv`
@@ -88,14 +88,14 @@ The 8 atomic CCM-own axioms partition into 4 Infrastructure axioms (BC operator-
 - **Honest caveat**: this is the **existence-form** corollary of the full Rouché theorem (equality of zero-counts with multiplicity); we ship only the existence form because the Hurwitz zero-convergence consumer requires only this much. The published proof in Ahlfors does not invoke RH.
 - **Non-RH-equivalence**: classical 19th-century complex analysis; pre-dates Riemann's hypothesis by 3 years and is independent of it.
 - **On/off-terminal**: **on-terminal** (in the canonical terminal's `#print axioms` closure). Consumed by the project-local theorem `hurwitz_zero_convergence` in `Lemmas/HurwitzZeros.lean`.
-- **Mathlib-gap rationale**: Mathlib at the pinned SHA lacks Rouché's theorem in any zero-counting form. The `circleIntegral` API, Cauchy's integral formula, and the locally-uniform-limit Weierstrass package are all present, but the argument-principle identity $(2\pi i)^{-1} \oint_{|z-c|=r} f'/f = \\#\\{\text{zeros of } f \text{ in } B(c, r)\\}$ is absent. Once that surface is filled in upstream, the axiom can be replaced by an `import` swap.
+- **Mathlib-gap rationale**: Mathlib at the pinned SHA lacks Rouché's theorem in any zero-counting form. The `circleIntegral` API, Cauchy's integral formula, and the locally-uniform-limit Weierstrass package are all present, but the argument-principle identity $(2\pi i)^{-1} \oint\_{|z-c|=r} f'/f = \\#\\{\text{zeros of } f \text{ in } B(c, r)\\}$ is absent. Once that surface is filled in upstream, the axiom can be replaced by an `import` swap.
 
 #### Axiom #6: `collectively_compact_resolvent_uniform_bound` — **on-terminal**
 
 - **Lean location**: `HilbertPolyaBostConnes/Lemmas/BoegliExactness/Helpers/Anselone.lean:175`
 - **Citation**: Anselone, P. M., *Collectively Compact Operator Approximation Theory and Applications to Integral Equations*, Prentice-Hall, 1971, Theorem 1.6 and §3 — together with Stummel, F., *Diskrete Konvergenz linearer Operatoren I*, Math. Ann. **190** (1970), 45–92, DOI [10.1007/BF01349967](https://doi.org/10.1007/BF01349967), §3.
-- **Statement** (Anselone 1971 §1.6 Theorem 1.6 / Stummel 1970 §3, uniform-resolvent-bound form): suppose $D_N : \mathbb{N} \to (H \to_L H)$ is a sequence of bounded operators on a complex Hilbert space $H$ such that (i) $D_N \to D_\infty$ strongly (pointwise on $H$) and (ii) $\{D_N\}$ is collectively compact (Stummel/Anselone). If $z \notin \sigma(D_\infty)$, then there exist $N_0 \in \mathbb{N}$ and $R > 0$ such that for every $N \ge N_0$, the operator $z \cdot \mathbf{1} - D_N$ is a unit (so $z \notin \sigma(D_N)$) and $\| (z \cdot \mathbf{1} - D_N)^{-1} \| \le R$.
-- **Honest caveat** (per the in-source docstring): Anselone 1971's original statement uses collectively-compact-norm convergence (equivalent to gsrc for the bounded $D_N$ case). The Lean encoding uses pointwise strong-operator convergence; the two coincide under `[CompleteSpace H]` + bounded-operator (Teschl 2014 Lemma 2.7). This equivalence is part of the deferred Mathlib content.
+- **Statement** (Anselone 1971 §1.6 Theorem 1.6 / Stummel 1970 §3, uniform-resolvent-bound form): suppose $D\_N : \mathbb{N} \to (H \to\_L H)$ is a sequence of bounded operators on a complex Hilbert space $H$ such that (i) $D\_N \to D\_\infty$ strongly (pointwise on $H$) and (ii) $\{D\_N\}$ is collectively compact (Stummel/Anselone). If $z \notin \sigma(D\_\infty)$, then there exist $N\_0 \in \mathbb{N}$ and $R > 0$ such that for every $N \ge N\_0$, the operator $z \cdot \mathbf{1} - D\_N$ is a unit (so $z \notin \sigma(D\_N)$) and $\| (z \cdot \mathbf{1} - D\_N)^{-1} \| \le R$.
+- **Honest caveat** (per the in-source docstring): Anselone 1971's original statement uses collectively-compact-norm convergence (equivalent to gsrc for the bounded $D\_N$ case). The Lean encoding uses pointwise strong-operator convergence; the two coincide under `[CompleteSpace H]` + bounded-operator (Teschl 2014 Lemma 2.7). This equivalence is part of the deferred Mathlib content.
 - **Non-RH-equivalence**: classical operator-theoretic perturbation theory; independent of RH.
 - **On/off-terminal**: **on-terminal** (in the canonical terminal's `#print axioms` closure). Consumed by the project-local theorem `boegli_spectral_exactness` in `Lemmas/BoegliExactness.lean` via Mathlib's `Units.add` Neumann-series surface.
 - **Mathlib-gap rationale**: Mathlib at the pinned SHA lacks any formalisation of collective compactness for operator families (the `IsCompactOperator` predicate is for single operators), any spectral-approximation framework for non-self-adjoint operators (Bögli–Siegl–Tretter 2019), and the Banach–Steinhaus uniform-boundedness transfer from strong convergence + collective compactness to resolvent boundedness. Target Mathlib file `Mathlib/Analysis/Spectrum/BoegliSieglTretter.lean`.
@@ -104,7 +104,7 @@ The 8 atomic CCM-own axioms partition into 4 Infrastructure axioms (BC operator-
 
 - **Lean location**: `HilbertPolyaBostConnes/Lemmas/RellichKondrachov/Helpers/GalerkinFiniteRank.lean:77`
 - **Citation**: Galerkin-truncation structural fact, surfaced from the CCM programme-internal substrate (Paper 13 §L4a). See Connes–Marcolli 2008 Ch. III for the BC modular Galerkin setup.
-- **Statement**: the range of the Galerkin truncation $P_N \circ D_\infty \circ P_N$ is finite-dimensional (finite-rank).
+- **Statement**: the range of the Galerkin truncation $P\_N \circ D\_\infty \circ P\_N$ is finite-dimensional (finite-rank).
 - **Non-RH-equivalence**: a structural Galerkin-truncation fact; classical.
 - **On/off-terminal**: **off-terminal**. Awaits exposure of the genuine Galerkin projector structure in `Infrastructure.lean`.
 
@@ -126,11 +126,11 @@ For each, we record the substrate citation; full bibliographic detail and per-ax
 
 | Axiom | Substrate citation |
 |---|---|
-| `bc_system_exists` | Bost–Connes 1995 Thm 25 + Connes–Marcolli 2008 Ch. III §3 (existence of the BC C*-dynamical system $(B_K, \alpha_t, \omega_1)$ for $K = \mathbb{Q}(i)$) |
-| `kms1_unique` | Bost–Connes 1995 Thm 25 (KMS$_1$ uniqueness at inverse temperature 1) + Laca–Larsen–Neshveyev 2009 (KMS classification for BC-type systems of general number fields) |
-| `kms1_faithful` | Bost–Connes 1995 §3, eq. (15) (faithfulness of $\omega_1$ on $B_K$) |
-| `itpfi_factorization` | Bost–Connes 1995 Prop 33 + Connes–Marcolli 2008 Ch. III Thm 3.32 (ITPFI factorization of $\omega_1$; non-traciality form per [Six, tt-bost-connes] §8.2 item 5) |
-| `time_evolution_is_automorphism` | Bost–Connes 1995 §3 Thm 24 (one-parameter $*$-automorphism group structure of $\alpha_t$) |
+| `bc_system_exists` | Bost–Connes 1995 Thm 25 + Connes–Marcolli 2008 Ch. III §3 (existence of the BC C*-dynamical system $(B\_K, \alpha\_t, \omega\_1)$ for $K = \mathbb{Q}(i)$) |
+| `kms1_unique` | Bost–Connes 1995 Thm 25 (KMS$\_1$ uniqueness at inverse temperature 1) + Laca–Larsen–Neshveyev 2009 (KMS classification for BC-type systems of general number fields) |
+| `kms1_faithful` | Bost–Connes 1995 §3, eq. (15) (faithfulness of $\omega\_1$ on $B\_K$) |
+| `itpfi_factorization` | Bost–Connes 1995 Prop 33 + Connes–Marcolli 2008 Ch. III Thm 3.32 (ITPFI factorization of $\omega\_1$; non-traciality form per [Six, tt-bost-connes] §8.2 item 5) |
+| `time_evolution_is_automorphism` | Bost–Connes 1995 §3 Thm 24 (one-parameter $*$-automorphism group structure of $\alpha\_t$) |
 | `kms_condition` | Bratteli–Robinson 1997 §5.3 (KMS boundary condition; standard) |
 
 All 6 TT-upstream axioms are **off-terminal** with respect to the present chain's canonical terminal: they support the broader substrate and are honestly inherited via the Lake dependency, but the canonical terminal `rh_of_ccm_galerkin` consumes `CCMGalerkinSpectralData` only via the gate's type-level fields, decoupling them from the on-terminal `#print axioms` closure.
