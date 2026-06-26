@@ -3,7 +3,7 @@
 Per-axiom disclosure for the Lean 4 formalization companion of the paper:
 
 > **The Bost-Connes Modular Generator as a candidate Hilbert-Pólya Operator, formalized in Lean 4**
-> *G Six*. 2026.
+> *G Six* - San Fracisco, 2026.
 
 Companion Lean repository: `localparty/hilbert-polya-bost-connes-lean` (commit `53e12d8`; v0.1 release). Mathlib pinned at SHA `5e932f97dd25535344f80f9dd8da3aab83df0fe6` (Lean 4 toolchain `v4.29.1`). Lake-dep on `localparty/tt-bost-connes-lean` v0.2 (Zenodo DOI `10.5281/zenodo.20674891`; commit `d4bb8949`).
 

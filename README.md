@@ -23,7 +23,7 @@ HilbertPolyaBostConnes.rh_of_ccm_galerkin
 
 — **"the Riemann Hypothesis follows from inhabiting `CCMGalerkinSpectralData`"**. Inhabiting `CCMGalerkinSpectralData` is equivalent to the Riemann Hypothesis (see §5 of the preprint). **No term of `CCMGalerkinSpectralData` is constructed in this work.** The Galerkin-side ingredients required for inhabitation are explicitly named in the gate's type-level fields.
 
-**This is not an unconditional closure of the Riemann Hypothesis.** It is a transparent conditional reduction + operator-algebraic scaffold + computer-verified type-level encoding of the reduction.
+**This is not an unconditional closure of the Riemann Hypothesis.** It is a transparent conditional reduction + operator-algebraic construction + computer-verified type-level encoding of the reduction.
 
 ## Repository contents
 
@@ -116,4 +116,4 @@ CC-BY-4.0. See `LICENSE`.
 
 ## AI collaboration disclosure
 
-During the preparation of this work, the author used Claude (Opus 4.7, Anthropic). The author reviewed all content and takes full responsibility for the paper.
+During the preparation of this work, the author used Claude Opus 4.7.
