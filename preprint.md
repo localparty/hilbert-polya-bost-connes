@@ -333,6 +333,8 @@ Target 7.4 covers two distinct categories of substrate axioms not addressed by T
 
 ---
 
+<a name="acknowledgments"></a>
+
 ## §8 — Acknowledgments
 
 We gratefully acknowledge:
@@ -346,6 +348,24 @@ In the spectral-theoretic core: **S. Bögli**, **P. Siegl**, and **C. Tretter** 
 The broader Hilbert-Pólya programme has been articulated and advanced over the decades by, among others, **M. Berry** and **J. Keating**, whose quantum-chaos / random-matrix connection has shaped contemporary understanding of zeta-zero spectral statistics, and **C. Deninger**, **M. Haran**, **N. Katz** and **P. Sarnak**, who have each pursued distinct foundational programmes. **Enrico Bombieri**'s exposition \[Bom00\] provides the canonical statement of the Riemann Hypothesis used throughout this work. The classical literature on $\zeta$ from **H. M. Edwards** and **E. C. Titchmarsh** has informed the analytic conventions used throughout.
 
 We owe substantial intellectual debt to the broader community of operator algebraists and analytic number theorists whose work has shaped the questions this paper addresses. Any errors or misjudgments are entirely the author's responsibility.
+
+## §9 — Continuous verification
+
+Mathematical theorems have historically been established through community consensus: peer review, independent inspection, and the slow accretion of trust over years. A Lean 4 formalization adds a complementary trust signal at finer grain: the construction is represented in Lean as structured types, named theorems and lemmas, and the implications between them. The structured type `CCMGalerkinSpectralData` (§5) carries the Galerkin-side data as type-level fields; the canonical terminal `rh_of_ccm_galerkin` consumes a `CCMGalerkinSpectralData` term and produces a `RiemannHypothesis` proof term; the spectral encoding's reliance on the gate's `strongConv` and `collectivelyCompact` fields is visible in its type signature.
+
+Mechanical rechecking on every commit reduces the entire chain to a fixed set of foundational axioms: the three Lean kernel axioms (`propext`, `Classical.choice`, `Quot.sound`) which underwrite the type theory itself, together with the named literature ports of §6.2, each of which carries a citation whose published proof does not invoke the Riemann Hypothesis. The check's public record, including the most-recent run conclusion, is at:
+
+> https://github.com/localparty/hilbert-polya-bost-connes-lean/actions/runs/28231402132
+
+A `success` conclusion on the most-recent `main`-branch check certifies, against Mathlib pinned at SHA `5e932f97dd25535344f80f9dd8da3aab83df0fe6` and Lean toolchain `v4.29.1`, that:
+
+- `lake build HilbertPolyaBostConnes` completes (the chain compiles);
+- The canonical terminal `HilbertPolyaBostConnes.rh_of_ccm_galerkin (g : CCMGalerkinSpectralData) : RiemannHypothesis` type-checks against Mathlib's `RiemannHypothesis` at `Mathlib.NumberTheory.LSeries.RiemannZeta:160`;
+- The `#print axioms` closure of that terminal is exactly the three Lean kernel axioms (`propext`, `Classical.choice`, `Quot.sound`) together with the two atomic literature ports declared in §6.2 — `rouche_zero_existence` citing Rouché 1862 (Ahlfors *Complex Analysis* §5.3 Theorem 18), and `collectively_compact_resolvent_uniform_bound` citing Anselone 1971 §1.6 Theorem 1.6 + Stummel 1970 §3.
+
+The structural reduction recorded in §5 — that any term of `CCMGalerkinSpectralData` yields a proof of `RiemannHypothesis` — is therefore verified, and reverified on every commit, within the conditions stated above. **The reduction's conditionality remains as stated in §5**: the open mathematical content is the inhabitation of the structured type, not the structural reduction itself.
+
+For readers who prefer to build the formalization locally rather than rely on the hosted runner, the static reproducibility commands are at Appendix A.
 
 ---
 
