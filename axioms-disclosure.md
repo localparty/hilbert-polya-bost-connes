@@ -127,10 +127,10 @@ For each, we record the substrate citation; full bibliographic detail and per-ax
 | Axiom | Substrate citation |
 |---|---|
 | `bc_system_exists` | Bost–Connes 1995 Thm 25 + Connes–Marcolli 2008 Ch. III §3 (existence of the BC C*-dynamical system $(B\_K, \alpha\_t, \omega\_1)$ for $K = \mathbb{Q}(i)$) |
-| `kms1_unique` | Bost–Connes 1995 Thm 25 (KMS$\_1$ uniqueness at inverse temperature 1) + Laca–Larsen–Neshveyev 2009 (KMS classification for BC-type systems of general number fields) |
+| `kms1_unique` | Bost–Connes 1995 Thm 25 ($\mathrm{KMS}\_1$ uniqueness at inverse temperature 1) + Laca–Larsen–Neshveyev 2009 (KMS classification for BC-type systems of general number fields) |
 | `kms1_faithful` | Bost–Connes 1995 §3, eq. (15) (faithfulness of $\omega\_1$ on $B\_K$) |
 | `itpfi_factorization` | Bost–Connes 1995 Prop 33 + Connes–Marcolli 2008 Ch. III Thm 3.32 (ITPFI factorization of $\omega\_1$; non-traciality form per [Six, tt-bost-connes] §8.2 item 5) |
-| `time_evolution_is_automorphism` | Bost–Connes 1995 §3 Thm 24 (one-parameter $*$-automorphism group structure of $\alpha\_t$) |
+| `time_evolution_is_automorphism` | Bost–Connes 1995 §3 Thm 24 (one-parameter $\ast$-automorphism group structure of $\alpha\_t$) |
 | `kms_condition` | Bratteli–Robinson 1997 §5.3 (KMS boundary condition; standard) |
 
 All 6 TT-upstream axioms are **off-terminal** with respect to the present chain's canonical terminal: they support the broader substrate and are honestly inherited via the Lake dependency, but the canonical terminal `rh_of_ccm_galerkin` consumes `CCMGalerkinSpectralData` only via the gate's type-level fields, decoupling them from the on-terminal `#print axioms` closure.
