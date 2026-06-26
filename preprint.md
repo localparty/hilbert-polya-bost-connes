@@ -18,7 +18,7 @@ We study the modular generator $D\_\infty = -i \cdot \partial\_t \log \Delta$ of
 
 **Keywords**: Hilbert-Pólya programme, Bost-Connes algebra, type $\mathrm{III}\_1$ factor, modular flow, KMS states, Galerkin approximation, Bögli-Siegl-Tretter spectral exactness, Lean 4 formalization, Mathlib.
 
-**MSC 2020**: 11M26 (Nonreal zeros of $\zeta(s)$ and $L(s,\chi)$); 46L36 (Classification of factors); 46L60 (Applications of selfadjoint operator algebras to physics); 47A10 (Spectrum, resolvent); 68V20 (Formal mathematics).
+**MSC 2020**: 11M26 (Nonreal zeros of ζ(s) and L(s,χ)); 46L36 (Classification of factors); 46L60 (Applications of selfadjoint operator algebras to physics); 47A10 (Spectrum, resolvent); 68V20 (Formal mathematics).
 
 ---
 
@@ -145,9 +145,11 @@ The uniform resolvent bound at step (2) is *not* a closed result. The Lean chain
 The spectrum of $D\_\infty$ is computed via two analytic ingredients:
 
 **Bögli-Siegl-Tretter spectral exactness.** Under the joint hypotheses of (a) generalised strong resolvent convergence $D\_N \to D\_\infty$ and (b) discrete compactness (via Rellich-Kondrachov on the relevant Sobolev embedding), Bögli-Siegl-Tretter 2017 \[BST17, Thm. 2.6\] gives spectral exactness:
+
 $$
 \mathrm{Spec}(D_\infty) \mspace{5mu} =\mspace{5mu} \lim_{N \to \infty} \mathrm{Spec}(D_N),
 $$
+
 with no spurious eigenvalues introduced in the limit.
 
 **Hurwitz uniform-on-compacts convergence.** The regularised determinant $\xi\_N(s) = \det\_2(D\_N - s)$ converges uniformly on compacts to the completed Riemann xi function $\Xi(s)$, via Hurwitz's classical theorem on zeros of uniform limits of holomorphic functions (\[Rud87, Thm. 14.2.2\]; cf. \[Hur93\]).
@@ -203,7 +205,7 @@ reports exactly:
 
 **On the conditionality.** We emphasise: the construction is a *transparent reduction*. Inhabiting a term of $\mathrm{CCMGalerkinSpectralData}$ is, in the present state of the art, equivalent to the Riemann Hypothesis. We do not represent this work as constructing such a term. The Galerkin-side ingredients — the uniform resolvent bound, the strong convergence $D\_N \to D\_\infty$, the uniform convergence of the regularised determinant — are *not* closed in the literature. They are the load-bearing open content; their independent closure is, in our judgment, the next substantive step in the Hilbert-Pólya programme along this line.
 
-**Specific progress signals.** Without anticipating outcomes, we identify three classes of partial result that would constitute incremental progress toward gate inhabitation: (i) partial closure of the uniform $H^1$ resolvent bound on a restricted sub-family of Galerkin projections (e.g. those associated to a single prime factor of the ITPFI factorization, where local modular data is explicit); (ii) numerical evidence for the uniform bound on small-$\mathbb{N}$ truncations matching the analytic prediction; (iii) the locally-uniform-convergence statement for the truncated completed-xi functions on the rotation strip, established directly from explicit Hecke-basis computations on a finite-$\mathbb{N}$ Galerkin projection. Each of (i)-(iii) would discharge a specific field of $\mathrm{CCMGalerkinSpectralData}$ on a restricted regime; full discharge across the chain is what gate inhabitation requires.
+**Specific progress signals.** Without anticipating outcomes, we identify three classes of partial result that would constitute incremental progress toward gate inhabitation: (i) partial closure of the uniform $H^1$ resolvent bound on a restricted sub-family of Galerkin projections (e.g. those associated to a single prime factor of the ITPFI factorization, where local modular data is explicit); (ii) numerical evidence for the uniform bound on small-ℕ truncations matching the analytic prediction; (iii) the locally-uniform-convergence statement for the truncated completed-xi functions on the rotation strip, established directly from explicit Hecke-basis computations on a finite-ℕ Galerkin projection. Each of (i)-(iii) would discharge a specific field of $\mathrm{CCMGalerkinSpectralData}$ on a restricted regime; full discharge across the chain is what gate inhabitation requires.
 
 The strategic value of the reduction is that it isolates the open content as a single concrete type-inhabitation problem. The algebraic substrate is closed; the spectral encoding under the structured-type hypothesis is closed; what remains is the concrete inhabitation. Whether this reshaping makes the open problem more tractable is for the broader community to judge.
 
