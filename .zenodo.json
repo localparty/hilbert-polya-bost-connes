@@ -54,5 +54,12 @@
       "scheme": "msc-2020"
     }
   ],
-  "language": "eng"
+  "language": "eng",
+  "related_identifiers": [
+    {
+      "relation": "isSupplementedBy",
+      "identifier": "10.5281/zenodo.20916336",
+      "scheme": "doi"
+    }
+  ]
 }
