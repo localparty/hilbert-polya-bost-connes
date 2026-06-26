@@ -11,7 +11,7 @@
   "upload_type": "publication",
   "publication_type": "preprint",
   "license": "CC-BY-4.0",
-  "version": "v0.1",
+  "version": "v0.2",
   "keywords": [
     "Hilbert-Pólya operator",
     "Bost-Connes algebra",
@@ -58,7 +58,7 @@
   "related_identifiers": [
     {
       "relation": "isSupplementedBy",
-      "identifier": "10.5281/zenodo.20916336",
+      "identifier": "10.5281/zenodo.20920735",
       "scheme": "doi"
     }
   ]
