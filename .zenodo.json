@@ -1,6 +1,6 @@
 {
   "title": "The Bost-Connes Modular Generator as a candidate Hilbert-Pólya Operator, formalized in Lean 4",
-  "description": "<p>Companion repository to the paper. The paper studies the modular generator D_∞ = -i · ∂_t log Δ of the Bost-Connes type III_1 factor at the critical KMS state (β = 1), acting on the GNS Hilbert space, as a candidate Hilbert-Pólya operator. We construct a Galerkin approximation chain whose spectra approximate that of D_∞ in the sense made precise by Bögli-Siegl-Tretter spectral exactness, and package the resulting Galerkin-side ingredients into a single named structured type, <code>CCMGalerkinSpectralData</code>, recorded in Lean 4 against a pinned Mathlib revision. The principal result is a <em>transparent conditional reduction</em>: inhabiting <code>CCMGalerkinSpectralData</code> is equivalent to the Riemann Hypothesis. <strong>This work does not claim a closure of the Riemann Hypothesis</strong> — no term of <code>CCMGalerkinSpectralData</code> is constructed in the formalization; the Galerkin-side ingredients required for inhabitation are explicitly named in the gate's type-level fields.</p><p>The chain's canonical terminal <code>HilbertPolyaBostConnes.rh_of_ccm_galerkin (g : CCMGalerkinSpectralData) : RiemannHypothesis</code> is computer-verified against Mathlib's formal statement of the Riemann Hypothesis. The named-axiom budget is closed against literature: 8 CCM-substrate-own atomic axioms (of which 2 — <code>rouche_zero_existence</code> citing Rouché 1862 and <code>collectively_compact_resolvent_uniform_bound</code> citing Anselone 1971 + Stummel 1970 — appear in the canonical terminal's <code>#print axioms</code> closure; 6 are off-terminal background substrate) plus 6 TT-upstream-inherited axioms via Lake-dep on the companion Tomita-Takesaki substrate. Each axiom carries a literature citation whose published proof does not invoke the Riemann Hypothesis; full per-axiom disclosure is in the companion <code>axioms-disclosure.md</code> document, with the bibliography in <code>references.tex</code>.</p><p>Companion Lean 4 formalization: <a href=\"https://github.com/localparty/hilbert-polya-bost-connes-lean\">localparty/hilbert-polya-bost-connes-lean</a> (v0.1 release, commit <code>6d29ee6</code>; Mathlib SHA <code>5e932f97dd25535344f80f9dd8da3aab83df0fe6</code>; Lake-dep on <a href=\"https://github.com/localparty/tt-bost-connes-lean\">tt-bost-connes-lean</a> v0.2, Zenodo DOI 10.5281/zenodo.20674891).</p><p>During the preparation of this work, the author used Claude Opus 4.7. The author reviewed all content and takes full responsibility for the paper.</p>",
+  "description": "<p>Companion repository to the paper. The paper studies the modular generator D_∞ = -i · ∂_t log Δ of the Bost-Connes type III_1 factor at the critical KMS state (β = 1), acting on the GNS Hilbert space, as a candidate Hilbert-Pólya operator. We construct a Galerkin approximation chain whose spectra approximate that of D_∞ in the sense made precise by Bögli-Siegl-Tretter spectral exactness, and package the resulting Galerkin-side ingredients into a single named structured type, <code>CCMGalerkinSpectralData</code>, recorded in Lean 4 against a pinned Mathlib revision. The principal result is a <em>transparent conditional reduction</em>: inhabiting <code>CCMGalerkinSpectralData</code> is equivalent to the Riemann Hypothesis. <strong>This work does not claim a closure of the Riemann Hypothesis</strong> — no term of <code>CCMGalerkinSpectralData</code> is constructed in the formalization; the Galerkin-side ingredients required for inhabitation are explicitly named in the gate's type-level fields.</p><p>The chain's canonical terminal <code>HilbertPolyaBostConnes.rh_of_ccm_galerkin (g : CCMGalerkinSpectralData) : RiemannHypothesis</code> is computer-verified against Mathlib's formal statement of the Riemann Hypothesis. The named-axiom budget is closed against literature: 8 CCM-substrate-own atomic axioms (of which 2 — <code>rouche_zero_existence</code> citing Rouché 1862 and <code>collectively_compact_resolvent_uniform_bound</code> citing Anselone 1971 + Stummel 1970 — appear in the canonical terminal's <code>#print axioms</code> closure; 6 are off-terminal background substrate) plus 6 TT-upstream-inherited axioms via Lake-dep on the companion Tomita-Takesaki substrate. Each axiom carries a literature citation whose published proof does not invoke the Riemann Hypothesis; full per-axiom disclosure is in the companion <code>axioms-disclosure.md</code> document, with the bibliography in <code>references.tex</code>.</p><p>Companion Lean 4 formalization: <a href=\"https://github.com/localparty/hilbert-polya-bost-connes-lean\">localparty/hilbert-polya-bost-connes-lean</a> (v0.3 release, commit <code>7aea727</code>; Mathlib SHA <code>5e932f97dd25535344f80f9dd8da3aab83df0fe6</code>; Lake-dep on <a href=\"https://github.com/localparty/tt-bost-connes-lean\">tt-bost-connes-lean</a> v0.2, Zenodo DOI 10.5281/zenodo.20674891). Continuous verification at <a href=\"https://github.com/localparty/hilbert-polya-bost-connes-lean/actions/runs/28233545971\">workflow run #3</a> (chain compiles, terminal type-checks, axioms match disclosed inventory).</p><p>During the preparation of this work, the author used Claude Opus 4.7. The author reviewed all content and takes full responsibility for the paper.</p>",
   "creators": [
     {
       "name": "Six, G",
@@ -11,7 +11,7 @@
   "upload_type": "publication",
   "publication_type": "preprint",
   "license": "CC-BY-4.0",
-  "version": "v0.2",
+  "version": "v0.3",
   "keywords": [
     "Hilbert-Pólya operator",
     "Bost-Connes algebra",
@@ -58,7 +58,12 @@
   "related_identifiers": [
     {
       "relation": "isSupplementedBy",
-      "identifier": "10.5281/zenodo.20920735",
+      "identifier": "10.5281/zenodo.20925651",
+      "scheme": "doi"
+    },
+    {
+      "relation": "isNewVersionOf",
+      "identifier": "10.5281/zenodo.20920816",
       "scheme": "doi"
     }
   ]

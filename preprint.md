@@ -355,7 +355,7 @@ Mathematical theorems have historically been established through community conse
 
 Mechanical rechecking on every commit reduces the entire chain to a fixed set of foundational axioms: the three Lean kernel axioms (`propext`, `Classical.choice`, `Quot.sound`) which underwrite the type theory itself, together with the named literature ports of §6.2, each of which carries a citation whose published proof does not invoke the Riemann Hypothesis. The check's public record, including the most-recent run conclusion, is at:
 
-> https://github.com/localparty/hilbert-polya-bost-connes-lean/actions/runs/28231402132
+> https://github.com/localparty/hilbert-polya-bost-connes-lean/actions/runs/28233545971
 
 A `success` conclusion on the most-recent `main`-branch check certifies, against Mathlib pinned at SHA `5e932f97dd25535344f80f9dd8da3aab83df0fe6` and Lean toolchain `v4.29.1`, that:
 
