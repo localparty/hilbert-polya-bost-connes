@@ -49,7 +49,7 @@ The 8 atomic CCM-own axioms partition into 4 Infrastructure axioms (BC operator-
 #### Axiom #1: `bc_factor_isTypeIII1`
 
 - **Lean location**: `HilbertPolyaBostConnes/Infrastructure.lean:104`
-- **Citation**: Araki, H.; Woods, E. J., *A classification of factors*, Publ. Res. Inst. Math. Sci., Kyoto Univ., Ser. A **4** (1968), 51–130, DOI [10.2977/prims/1195195263](https://doi.org/10.2977/prims/1195195263) (ITPFI type $\mathrm{III}\_1$ classification) — together with Haagerup, U., *Connes' bicentralizer problem and uniqueness of the injective factor of type $\mathrm{III}\_1$*, Acta Math. **158** (1987), 95–148, DOI [10.1007/BF02392257](https://doi.org/10.1007/BF02392257) (uniqueness of injective type $\mathrm{III}\_1$).
+- **Citation**: Araki, H.; Woods, E. J., *A classification of factors*, Publ. Res. Inst. Math. Sci., Kyoto Univ., Ser. A **4** (1968), 51–130, DOI [10.2977/prims/1195195263](https://doi.org/10.2977/prims/1195195263) (ITPFI type $\mathrm{III}\_1$ classification) — together with Haagerup, U., *Connes' bicentralizer problem and uniqueness of the injective factor of type III₁*, Acta Math. **158** (1987), 95–148, DOI [10.1007/BF02392257](https://doi.org/10.1007/BF02392257) (uniqueness of injective type $\mathrm{III}\_1$).
 - **Statement**: the Bost–Connes factor $M\_1 = \pi\_{\omega\_1}(B\_K)''$ is the unique injective type $\mathrm{III}\_1$ factor in Connes' classification.
 - **Non-RH-equivalence**: a classical theorem about the BC factor; the published proofs do not invoke the Riemann Hypothesis.
 - **On/off-terminal**: **off-terminal** (background substrate).
@@ -94,7 +94,7 @@ The 8 atomic CCM-own axioms partition into 4 Infrastructure axioms (BC operator-
 
 - **Lean location**: `HilbertPolyaBostConnes/Lemmas/BoegliExactness/Helpers/Anselone.lean:175`
 - **Citation**: Anselone, P. M., *Collectively Compact Operator Approximation Theory and Applications to Integral Equations*, Prentice-Hall, 1971, Theorem 1.6 and §3 — together with Stummel, F., *Diskrete Konvergenz linearer Operatoren I*, Math. Ann. **190** (1970), 45–92, DOI [10.1007/BF01349967](https://doi.org/10.1007/BF01349967), §3.
-- **Statement** (Anselone 1971 §1.6 Theorem 1.6 / Stummel 1970 §3, uniform-resolvent-bound form): suppose $D\_N : \mathbb{N} \to (H \to\_L H)$ is a sequence of bounded operators on a complex Hilbert space $H$ such that (i) $D\_N \to D\_\infty$ strongly (pointwise on $H$) and (ii) $\{D\_N\}$ is collectively compact (Stummel/Anselone). If $z \notin \sigma(D\_\infty)$, then there exist $N\_0 \in \mathbb{N}$ and $R > 0$ such that for every $N \ge N\_0$, the operator $z \cdot \mathbf{1} - D\_N$ is a unit (so $z \notin \sigma(D\_N)$) and $\| (z \cdot \mathbf{1} - D\_N)^{-1} \| \le R$.
+- **Statement** (Anselone 1971 §1.6 Theorem 1.6 / Stummel 1970 §3, uniform-resolvent-bound form): suppose $D\_N : \mathbb{N} \to (H \to\_L H)$ is a sequence of bounded operators on a complex Hilbert space $H$ such that (i) $D\_N \to D\_\infty$ strongly (pointwise on $H$) and (ii) $\{D\_N\}$ is collectively compact (Stummel/Anselone). If $z \notin \sigma(D\_\infty)$, then there exist $N\_0 \in \mathbb{N}$ and $R > 0$ such that for every $N \ge N\_0$, the operator $z \cdot \mathbf{1} - D\_N$ is a unit (so $z \notin \sigma(D\_N)$ ) and $\| (z \cdot \mathbf{1} - D\_N)^{-1} \| \le R$.
 - **Honest caveat** (per the in-source docstring): Anselone 1971's original statement uses collectively-compact-norm convergence (equivalent to gsrc for the bounded $D\_N$ case). The Lean encoding uses pointwise strong-operator convergence; the two coincide under `[CompleteSpace H]` + bounded-operator (Teschl 2014 Lemma 2.7). This equivalence is part of the deferred Mathlib content.
 - **Non-RH-equivalence**: classical operator-theoretic perturbation theory; independent of RH.
 - **On/off-terminal**: **on-terminal** (in the canonical terminal's `#print axioms` closure). Consumed by the project-local theorem `boegli_spectral_exactness` in `Lemmas/BoegliExactness.lean` via Mathlib's `Units.add` Neumann-series surface.
@@ -111,7 +111,7 @@ The 8 atomic CCM-own axioms partition into 4 Infrastructure axioms (BC operator-
 #### Axiom #8: `dInftyApproximants_h1CompactEmbedding`
 
 - **Lean location**: `HilbertPolyaBostConnes/Lemmas/RellichKondrachov/Helpers/CompactEmbedding.lean:124`
-- **Citation**: Rellich, F., *Ein Satz über mittlere Konvergenz*, Nachr. Ges. Wiss. Göttingen, Math.-Phys. Kl. (1930), 30–35 — together with Kondrachov, V. I., *Sur certaines propriétés des fonctions dans l'espace $L^p$*, C. R. (Doklady) Acad. Sci. URSS **48** (1945), 535–538.
+- **Citation**: Rellich, F., *Ein Satz über mittlere Konvergenz*, Nachr. Ges. Wiss. Göttingen, Math.-Phys. Kl. (1930), 30–35 — together with Kondrachov, V. I., *Sur certaines propriétés des fonctions dans l'espace Lᵖ*, C. R. (Doklady) Acad. Sci. URSS **48** (1945), 535–538.
 - **Statement**: the embedding $H^1 \hookrightarrow L^2$ is compact (Rellich–Kondrachov), conditional on the uniform-bound and finite-rank hypotheses.
 - **Non-RH-equivalence**: classical Sobolev-embedding theorem; predates and is independent of the relevant analytic number theory.
 - **On/off-terminal**: **off-terminal**.
@@ -126,7 +126,7 @@ For each, we record the substrate citation; full bibliographic detail and per-ax
 
 | Axiom | Substrate citation |
 |---|---|
-| `bc_system_exists` | Bost–Connes 1995 Thm 25 + Connes–Marcolli 2008 Ch. III §3 (existence of the BC C*-dynamical system $(B\_K, \alpha\_t, \omega\_1)$ for $K = \mathbb{Q}(i)$) |
+| `bc_system_exists` | Bost–Connes 1995 Thm 25 + Connes–Marcolli 2008 Ch. III §3 (existence of the BC C\*-dynamical system $(B\_K, \alpha\_t, \omega\_1)$ for K = ℚ(i)) |
 | `kms1_unique` | Bost–Connes 1995 Thm 25 ($\mathrm{KMS}\_1$ uniqueness at inverse temperature 1) + Laca–Larsen–Neshveyev 2009 (KMS classification for BC-type systems of general number fields) |
 | `kms1_faithful` | Bost–Connes 1995 §3, eq. (15) (faithfulness of $\omega\_1$ on $B\_K$) |
 | `itpfi_factorization` | Bost–Connes 1995 Prop 33 + Connes–Marcolli 2008 Ch. III Thm 3.32 (ITPFI factorization of $\omega\_1$; non-traciality form per [Six, tt-bost-connes] §8.2 item 5) |
