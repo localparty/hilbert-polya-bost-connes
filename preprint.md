@@ -18,7 +18,7 @@ We study the modular generator $D\_\infty = -i \cdot \partial\_t \log \Delta$ of
 
 **Keywords**: Hilbert-Pólya programme, Bost-Connes algebra, type $\mathrm{III}\_1$ factor, modular flow, KMS states, Galerkin approximation, Bögli-Siegl-Tretter spectral exactness, Lean 4 formalization, Mathlib.
 
-**MSC 2020**: 11M26 (Nonreal zeros of $\zeta(s)$ and $L(s, \chi)$); 46L36 (Classification of factors); 46L60 (Applications of selfadjoint operator algebras to physics); 47A10 (Spectrum, resolvent); 68V20 (Formal mathematics).
+**MSC 2020**: 11M26 (Nonreal zeros of $\zeta(s)$ and $L(s,\chi)$); 46L36 (Classification of factors); 46L60 (Applications of selfadjoint operator algebras to physics); 47A10 (Spectrum, resolvent); 68V20 (Formal mathematics).
 
 ---
 
@@ -146,7 +146,7 @@ The spectrum of $D\_\infty$ is computed via two analytic ingredients:
 
 **Bögli-Siegl-Tretter spectral exactness.** Under the joint hypotheses of (a) generalised strong resolvent convergence $D\_N \to D\_\infty$ and (b) discrete compactness (via Rellich-Kondrachov on the relevant Sobolev embedding), Bögli-Siegl-Tretter 2017 \[BST17, Thm. 2.6\] gives spectral exactness:
 $$
-\mathrm{Spec}(D_\infty) \;=\; \lim_{N \to \infty} \mathrm{Spec}(D_N),
+\mathrm{Spec}(D_\infty) \mspace{5mu} =\mspace{5mu} \lim_{N \to \infty} \mathrm{Spec}(D_N),
 $$
 with no spurious eigenvalues introduced in the limit.
 
@@ -319,7 +319,7 @@ The on-terminal atomic axiom `collectively_compact_resolvent_uniform_bound` (`Le
 
 ### Mathlib Integration Target 7.3 (Rellich–Kondrachov compact embedding for the Galerkin setting)
 
-*Develop a Mathlib formalisation of the Rellich–Kondrachov $H^1 \hookrightarrow L^2$ compact-embedding theorem in the Galerkin-projection setting of the present construction, with the supporting finite-rank infrastructure.*
+*Develop a Mathlib formalisation of the Rellich–Kondrachov H¹ ↪ L² compact-embedding theorem in the Galerkin-projection setting of the present construction, with the supporting finite-rank infrastructure.*
 
 Two off-terminal atomic axioms — `dInftyApproximants_h1CompactEmbedding` (`Lemmas/RellichKondrachov/Helpers/CompactEmbedding.lean:124`) citing Rellich 1930 + Kondrachov 1945, and `dInftyApproximants_finiteRank` (`Lemmas/RellichKondrachov/Helpers/GalerkinFiniteRank.lean:77`) recording the Galerkin-truncation finite-rank structural fact — together package the compact-embedding fact conditional on uniform-bound and finite-rank hypotheses. Mathlib has the abstract Sobolev-embedding framework; at the pinned SHA it does not provide the Rellich–Kondrachov statement in the form required by the Galerkin restriction $P\_N \circ D\_\infty \circ P\_N$. The route is a Mathlib PR adding the Rellich–Kondrachov compact embedding to the `Mathlib/Analysis/InnerProductSpace` chain together with a Galerkin-projection adapter; estimated 200–400 lines including the Sobolev-space groundwork. This is an off-terminal target — completion does not change the canonical-terminal `#print axioms` closure but does discharge two background-substrate axioms that the broader Galerkin programme relies on.
 
@@ -359,7 +359,7 @@ The full BibTeX-formatted bibliography is in the companion file `references.tex`
 
 **Bögli, S.** *Convergence of sequences of linear operators and their spectra.* Integral Equations and Operator Theory **88** (2017), 559–599. DOI: [10.1007/s00020-017-2389-3](https://doi.org/10.1007/s00020-017-2389-3); arXiv:1604.07732. <!-- \bibitem{Bog17} -->
 
-**Bögli, S.; Siegl, P.; Tretter, C.** *Approximations of spectra of Schrödinger operators with complex potentials on $\mathbb{R}^d$.* Comm. Partial Differential Equations **42** (2017), 1001–1041. DOI: [10.1080/03605302.2017.1330342](https://doi.org/10.1080/03605302.2017.1330342). <!-- \bibitem{BST17} -->
+**Bögli, S.; Siegl, P.; Tretter, C.** *Approximations of spectra of Schrödinger operators with complex potentials on ℝᵈ.* Comm. Partial Differential Equations **42** (2017), 1001–1041. DOI: [10.1080/03605302.2017.1330342](https://doi.org/10.1080/03605302.2017.1330342). <!-- \bibitem{BST17} -->
 
 **Bombieri, E.** *The Riemann Hypothesis.* Clay Mathematics Institute, 2000. (Standard expository statement of the conjecture.) <!-- \bibitem{Bom00} -->
 
@@ -379,11 +379,11 @@ The full BibTeX-formatted bibliography is in the companion file `references.tex`
 
 **Edwards, H. M.** *Riemann's Zeta Function.* Academic Press, New York, 1974. <!-- \bibitem{Edw74} -->
 
-**Haagerup, U.** *Connes' bicentralizer problem and uniqueness of the injective factor of type $\mathrm{III}\_1$.* Acta Math. **158** (1987), 95–148. DOI: [10.1007/BF02392257](https://doi.org/10.1007/BF02392257). <!-- \bibitem{Haa87} -->
+**Haagerup, U.** *Connes' bicentralizer problem and uniqueness of the injective factor of type III₁.* Acta Math. **158** (1987), 95–148. DOI: [10.1007/BF02392257](https://doi.org/10.1007/BF02392257). <!-- \bibitem{Haa87} -->
 
 **Hurwitz, A.** *Über die Bedingungen, unter welchen eine Gleichung nur Wurzeln mit negativen reellen Teilen besitzt.* Math. Ann. **46** (1895), 273–284. (The zero-convergence theorem; classical 1893 form.) <!-- \bibitem{Hur93} -->
 
-**Kondrachov, V. I.** *Sur certaines propriétés des fonctions dans l'espace $L^p$.* C. R. (Doklady) Acad. Sci. URSS **48** (1945), 535–538. <!-- \bibitem{Kon45} -->
+**Kondrachov, V. I.** *Sur certaines propriétés des fonctions dans l'espace Lᵖ.* C. R. (Doklady) Acad. Sci. URSS **48** (1945), 535–538. <!-- \bibitem{Kon45} -->
 
 **Loeffler, F.** Riemann zeta function and the Riemann Hypothesis (formalization), `Mathlib.NumberTheory.LSeries.RiemannZeta`, 2024–2026. <!-- \bibitem{Loe24} -->
 
@@ -393,7 +393,7 @@ The full BibTeX-formatted bibliography is in the companion file `references.tex`
 
 **Rudin, W.** *Real and Complex Analysis.* 3rd ed., McGraw-Hill, New York, 1987. ISBN 978-0-07-054234-1. (Hurwitz zero-convergence theorem at Theorem 14.2.2.) <!-- \bibitem{Rud87} -->
 
-**Six, G.** *Tomita–Takesaki modular theory of the Bost–Connes algebra at $\beta = 1$, formalized in Lean 4.* math.OA submission, 2026. Zenodo DOI: [10.5281/zenodo.20674870](https://doi.org/10.5281/zenodo.20674870). (Companion paper.) <!-- \bibitem{TTpaper} -->
+**Six, G.** *Tomita–Takesaki modular theory of the Bost–Connes algebra at β = 1, formalized in Lean 4.* math.OA submission, 2026. Zenodo DOI: [10.5281/zenodo.20674870](https://doi.org/10.5281/zenodo.20674870). (Companion paper.) <!-- \bibitem{TTpaper} -->
 
 **Slepian, D.** *Some asymptotic expansions for prolate spheroidal wave functions.* J. Math. and Phys. **44** (1965), 99–140. (Prolate-spheroidal expansions underwriting Galerkin-truncation compatibility analysis.) <!-- \bibitem{Sle65} -->
 
